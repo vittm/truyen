@@ -1,0 +1,39 @@
+<?php
+function renderCategories($list, $class = 'category-block', $open = true, $that) {
+    ob_start();
+    ?>
+    <?php foreach($list as $categoryName => $fileList) {
+        $rand = rand(0, 100000);
+
+        if(count($fileList['data']) == 0 && !$that->renderCheckHasChildren($fileList)) continue; ?>
+
+        <div class="category-box" data-category-view="categories-<?php echo $rand; ?>">
+            <div class="category-sub-box">
+                <div class="category-icon">
+                    <?php echo isset($fileList['icon']) && strlen(trim($fileList['icon'])) > 0 ? $fileList['icon'] : '<i class="fa fa-folder-open-o"></i>'; ?>
+                </div>
+                <?php echo $categoryName != 'none' ? "<h2 class='category-header' data-category-view='categories-$rand'>" . esc_html($categoryName) . "</h2>": ''; ?>
+                <div class="category-item-count"><?php echo __('Items ', 'orcas-responsive-wiki') . $fileList['sum'] ?></div>
+            </div>
+        </div>
+
+        <div id="categories-<?php echo $rand; ?>" class="sub-cat-list">
+            <?php echo renderCategories($fileList['child'], $class, true, $that); ?>
+            <ul class="wiki-list-collection">
+            <?php
+                foreach($fileList['data'] as $item) { ?>
+                    <li class="wiki-entries" data-wiki-page="<?php echo esc_attr($item->post_name); ?>" data-page-name="<?php echo esc_attr($item->post_title); ?>" data-id="<?php echo esc_attr($item->ID);?>"><i class="fa fa-file-o"></i><?php echo esc_html($item->post_title); ?></li>
+                <?php }
+            ?>
+            </ul>
+        </div>
+
+    <?php }
+
+    $content = ob_get_contents();
+    ob_end_clean();
+
+    return $content;
+}
+
+echo renderCategories($list, 'category-block', true, $this);

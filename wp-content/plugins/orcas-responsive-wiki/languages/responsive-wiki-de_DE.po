@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: orcas Responsive Wiki\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-05-07 15:36+0000\n"
+"PO-Revision-Date: 2018-05-07 15:45+0000\n"
+"Last-Translator: mario.gleichmann <michael.kirchner@orcas.de>\n"
+"Language-Team: Deutsch\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: templates/new-wiki-form.php:3
+msgid "Back"
+msgstr "Zurück"
+
+#: templates/new-wiki-form.php:22
+msgid "Choose a Value"
+msgstr "Keine Auswahl"
+
+#: core/wiki.php:40
+msgid "Content:"
+msgstr "Inhalt:"
+
+#. Description of the plugin
+msgid ""
+"Create your own Wordpress Wiki and share your wiki with all Wordpress users "
+"on your system."
+msgstr ""
+"Erstelle dein eigens Wiki in Wordpress und teile die Inhalte mit allen "
+"Nutzern auf deinem Wordpress System."
+
+#: templates/settings/settings.phtml:14
+msgid "Custom Permission"
+msgstr "Benutzerdefinierte Zugriffsrechte"
+
+#: templates/new-wiki-form.php:65
+msgid "Delete"
+msgstr "Löschen"
+
+#: templates/settings/settings.phtml:6
+msgid "everyone"
+msgstr "Alle"
+
+#: templates/new-wiki-form.php:4
+msgid "New Wiki"
+msgstr "Neues Wiki"
+
+#: templates/settings/settings.phtml:10
+msgid "Only Administrators"
+msgstr "Nur Administratoren"
+
+#. Author of the plugin
+msgid "orcas"
+msgstr "orcas"
+
+#. Name of the plugin
+msgid "orcas Responsive Wiki"
+msgstr "orcas Responsive Wiki"
+
+#: templates/settings/settings.phtml:16
+msgid "Roles"
+msgstr "Rollen"
+
+#: templates/new-wiki-form.php:58 templates/settings/settings.phtml:37
+msgid "Save"
+msgstr "Speichern"
+
+#: extension/BuddyPress/BuddyPressExtension.php:67
+msgid "Save Changes"
+msgstr "Änderungen Speichern"
+
+#: core/wiki.php:33
+msgid "Title:"
+msgstr "Titel:"
+
+#: templates/new-wiki-form.php:4
+msgid "Update Wiki"
+msgstr "Wiki bearbeiten"
+
+#: core/wiki.php:46
+msgid ""
+"Use the keyword \"<strong>wiki:</strong>\" to create a link to an other "
+"existing Wiki page. <br />Notice: You need a space before the keyword."
+msgstr ""
+"Verwenden Sie das Stichwort \"<strong>wiki:</strong>\" um einen link zu "
+"einer anderen Wiki Seite zu erstellen.<br />Hinweis: vor dem Stichwort muss "
+"ein Leerzeichen sein."
+
+#: templates/settings/settings.phtml:24
+msgid "Users"
+msgstr "Benutzer"
+
+#: templates/settings/settings.phtml:2
+msgid "Who can create and update Wiki Pages."
+msgstr "Wer kann Wiki Seiten bearbeiten und erstellen."
+
+#: extension/BuddyPress/BuddyPressExtension.php:26
+msgid "Wiki"
+msgstr "Wiki"
+
+#: extension/BuddyPress/template/settings.phtml:3
+msgid "Wiki enabled."
+msgstr "Wiki aktiviert"
+
+#: core/wiki.php:56
+msgid "Wiki Settings"
+msgstr "Wiki Einstellungen"

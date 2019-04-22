@@ -1,0 +1,147 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: orcas Upgrade\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-17 15:01+0000\n"
+"PO-Revision-Date: 2018-08-17 15:16+0000\n"
+"Last-Translator: clemens.baudisch <clemens.baudisch@orcas.de>\n"
+"Language-Team: Deutsch\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: include/Nagger/Nagger.php:89
+msgid "Dismiss"
+msgstr "Ausblenden"
+
+#: include/Nagger/Nagger.php:90
+msgid "Stop showing this"
+msgstr "Nicht mehr anzeigen"
+
+#: include/Nagger/Nagger.php:100
+#, php-format
+msgid ""
+"Not satisfied with what our plugin offers? You might want to consider "
+"getting the pro version for these plugins! Check out our <a href=\"%s\">"
+"store</a>!"
+msgstr ""
+"Nicht zufrieden mit dem, was unser Plugin anbietet? Schaue dir die Pro "
+"Version "
+
+#: include/Nagger/Nagger.php:134
+msgid "Like our plugin? Please take a moment to rate it!"
+msgstr ""
+"Gefällt dir unser Plugin? Nimm dir einen Moment Zeit um es zu bewerten!"
+
+#: include/Upgrade/Upgrade.php:168
+msgid "Plugins cannot installed! Permission denied."
+msgstr "Plugins können nicht installiert werden! Zugriff verweigert."
+
+#: include/Upgrade/Upgrade.php:178 include/Upgrade/Upgrade.php:179
+msgid "orcas"
+msgstr "orcas"
+
+#: include/Upgrade/Upgrade.php:189 include/Upgrade/Upgrade.php:190
+msgid "License & Shop"
+msgstr "Lizenz & Shop"
+
+#: include/Upgrade/views/view.php:5
+msgid "Done! Licence key accepted."
+msgstr "Erledigt! Lizenzschlüssel wurde akzeptiert."
+
+#: include/Upgrade/views/view.php:9
+msgid "Invalid licence key or password"
+msgstr "Ungültiger Lizenzschlüssel oder Passwort"
+
+#: include/Upgrade/views/view.php:20 include/Upgrade/lib/view.php:6
+msgid "Upgrade token"
+msgstr "Upgrade Token"
+
+#: include/Upgrade/views/view.php:27
+msgid "orcas.de password"
+msgstr "orcas.de Passwort"
+
+#: include/Upgrade/views/view.php:29
+msgid "Your orcas.de account password."
+msgstr "Dein orcas.de Zugangspasswort."
+
+#: include/Upgrade/views/view.php:39
+msgid "Delete token"
+msgstr "Token löschen"
+
+#: include/Upgrade/views/item.phtml:9
+msgid "Extension"
+msgstr "Erweiterung"
+
+#: include/Upgrade/views/item.phtml:9
+msgid "Plugin"
+msgstr "Plugin"
+
+#: include/Upgrade/views/item.phtml:17 include/Upgrade/views/item.phtml:56
+#: include/Upgrade/views/item.phtml:73 include/Upgrade/lib/item.phtml:13
+#: include/Upgrade/lib/item.phtml:46
+msgid "Activate"
+msgstr "Aktivieren"
+
+#: include/Upgrade/views/item.phtml:23 include/Upgrade/views/item.phtml:47
+#: include/Upgrade/lib/item.phtml:19 include/Upgrade/lib/item.phtml:39
+msgid "Install"
+msgstr "Installieren"
+
+#: include/Upgrade/views/item.phtml:31 include/Upgrade/lib/item.phtml:26
+msgid "Upgrade"
+msgstr "Upgrade"
+
+#: include/Upgrade/views/item.phtml:37 include/Upgrade/lib/item.phtml:31
+msgid "Buy"
+msgstr "Kaufen"
+
+#: include/Upgrade/views/item.phtml:64 include/Upgrade/views/item.phtml:106
+#: include/Upgrade/views/item.phtml:113
+msgid "Deactivate"
+msgstr "Deaktivieren"
+
+#: include/Upgrade/views/item.phtml:83
+msgid "Downgrade"
+msgstr "Downgrade"
+
+#: include/Upgrade/views/item.phtml:93 include/Upgrade/views/item.phtml:100
+#: include/Upgrade/lib/item.phtml:54 include/Upgrade/lib/item.phtml:59
+msgid "Uninstall"
+msgstr "Deinstallieren"
+
+#: include/Upgrade/views/item.phtml:119
+msgid "Pro edition is installed"
+msgstr "Pro Version ist installiert"
+
+#: include/Upgrade/views/item.phtml:124
+msgid "Require"
+msgstr "Erfordert"
+
+#: include/Upgrade/views/item.phtml:132 include/Upgrade/lib/item.phtml:65
+msgid "Details"
+msgstr "Details"
+
+#: include/Upgrade/views/item.phtml:133 include/Upgrade/lib/item.phtml:66
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: include/Upgrade/views/item.phtml:136 include/Upgrade/lib/item.phtml:69
+msgid "Compatibel"
+msgstr "Kompatibel"
+
+#: include/Upgrade/views/item.phtml:137 include/Upgrade/lib/item.phtml:70
+msgid "with your WordPress version"
+msgstr "mit deiner WordPress Version"
+
+#: include/Upgrade/views/item.phtml:145
+#, php-format
+msgid "Version %s is now available."
+msgstr "Version %s ist jetzt verfügbar."
+
+#: include/Upgrade/views/item.phtml:148
+msgid "Update"
+msgstr "Update"

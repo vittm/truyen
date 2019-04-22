@@ -1,0 +1,87 @@
+.sub-cat-list {
+  position: absolute;
+  z-index: 10;
+  top: 176px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  display: none; }
+  .sub-cat-list .sub-cat-list {
+    top: 0 !important; }
+    .sub-cat-list .sub-cat-list .wiki-list-collection {
+      text-align: left;
+      padding: 5px 45px 0 45px !important; }
+      .sub-cat-list .sub-cat-list .wiki-list-collection li {
+        width: 200px;
+        display: inline-block; }
+
+.wiki-list-collection {
+  text-align: left;
+  padding: 5px 45px 0 45px !important; }
+
+.category-box {
+  position: relative;
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 20px;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  margin: 3px 6px;
+  vertical-align: top; }
+  .category-box .category-item-count {
+    height: 30px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0; }
+  .category-box .category-icon {
+    font-size: 50px;
+    text-align: center;
+    height: 80px; }
+
+.category-box:hover {
+  border: 1px solid #000; }
+
+.pinterest-style {
+  width: 200px;
+  padding: 20px;
+  column-width: initial !important;
+  text-align: center; }
+
+#category-bread-crumb {
+  position: absolute;
+  z-index: 15;
+  margin: 0 13px; }
+  #category-bread-crumb ul {
+    display: none;
+    padding: 0; }
+    #category-bread-crumb ul li {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      color: #adadad;
+      list-style-type: none;
+      margin: 0 0 0 10px !important;
+      padding: 0 0 0 10px; }
+    #category-bread-crumb ul li:hover {
+      color: #000; }
+    #category-bread-crumb ul li:before {
+      content: "/";
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #777; }
+    #category-bread-crumb ul li:first-child {
+      margin: 0 !important;
+      padding: 0; }
+    #category-bread-crumb ul li:first-child:before {
+      display: none !important; }
+    #category-bread-crumb ul li:last-child {
+      cursor: default;
+      color: #adadad !important; }
+
+/*# sourceMappingURL=categoryBox.css.map */

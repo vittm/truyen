@@ -1,0 +1,107 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: orcas Responsive Wiki\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-05-07 15:36+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: templates/new-wiki-form.php:3
+msgid "Back"
+msgstr ""
+
+#: templates/new-wiki-form.php:22
+msgid "Choose a Value"
+msgstr ""
+
+#: core/wiki.php:40
+msgid "Content:"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Create your own Wordpress Wiki and share your wiki with all Wordpress users "
+"on your system."
+msgstr ""
+
+#: templates/settings/settings.phtml:14
+msgid "Custom Permission"
+msgstr ""
+
+#: templates/new-wiki-form.php:65
+msgid "Delete"
+msgstr ""
+
+#: templates/settings/settings.phtml:6
+msgid "everyone"
+msgstr ""
+
+#: templates/new-wiki-form.php:4
+msgid "New Wiki"
+msgstr ""
+
+#: templates/settings/settings.phtml:10
+msgid "Only Administrators"
+msgstr ""
+
+#. Author of the plugin
+msgid "orcas"
+msgstr ""
+
+#. Name of the plugin
+msgid "orcas Responsive Wiki"
+msgstr ""
+
+#: templates/settings/settings.phtml:16
+msgid "Roles"
+msgstr ""
+
+#: templates/new-wiki-form.php:58 templates/settings/settings.phtml:37
+msgid "Save"
+msgstr ""
+
+#: extension/BuddyPress/BuddyPressExtension.php:67
+msgid "Save Changes"
+msgstr ""
+
+#: core/wiki.php:33
+msgid "Title:"
+msgstr ""
+
+#: templates/new-wiki-form.php:4
+msgid "Update Wiki"
+msgstr ""
+
+#: core/wiki.php:46
+msgid ""
+"Use the keyword \"<strong>wiki:</strong>\" to create a link to an other "
+"existing Wiki page. <br />Notice: You need a space before the keyword."
+msgstr ""
+
+#: templates/settings/settings.phtml:24
+msgid "Users"
+msgstr ""
+
+#: templates/settings/settings.phtml:2
+msgid "Who can create and update Wiki Pages."
+msgstr ""
+
+#: extension/BuddyPress/BuddyPressExtension.php:26
+msgid "Wiki"
+msgstr ""
+
+#: extension/BuddyPress/template/settings.phtml:3
+msgid "Wiki enabled."
+msgstr ""
+
+#: core/wiki.php:56
+msgid "Wiki Settings"
+msgstr ""

@@ -1,0 +1,24 @@
+Apr 22 02:02:43 ==DUPLICATOR INSTALLER BOOTSTRAP v3.8.2==
+Apr 22 02:02:43 ----------------------------------------------------
+Apr 22 02:02:43 Installer bootstrap start
+Apr 22 02:02:43 Using archive C:/xampp/htdocs/tbq/20190422_truyenbanquyen_38b1958569fd772f2451_20190422012124_archive.daf
+Apr 22 02:02:43 Manual extract didn't found so going to extract dup-installer dir
+Apr 22 02:02:43 Ready to extract the installer
+Apr 22 02:02:43 Checking permission of destination folder
+Apr 22 02:02:47 No need to create dup-installer/.htaccess or dup-installer/.user.ini
+Apr 22 02:02:47 SAPI: Unrecognized
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer to 755<br/>
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer/api to 755<br/>
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer/assets to 755<br/>
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer/classes to 755<br/>
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer/ctrls to 755<br/>
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer/lib to 755<br/>
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer/views to 755<br/>
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer/dup-archive__38b1958-22012124.txt to 666<br/>
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer/dup-database__38b1958-22012124.sql to 666<br/>
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer/dup-scan__38b1958-22012124.json to 666<br/>
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer/dup-scanned-dirs__38b1958-22012124.txt to 666<br/>
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer/dup-scanned-files__38b1958-22012124.txt to 666<br/>
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer/index.php to 666<br/>
+Apr 22 02:02:47 Set permissions of C:/xampp/htdocs/tbq/dup-installer/main.installer.php to 666<br/>
+Apr 22 02:02:47 No detected errors so redirecting to the main installer. Main Installer URI = http://localhost/tbq/dup-installer/main.installer.php

@@ -1,0 +1,53 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: michael.kirchner
+ * Date: 26.06.18
+ * Time: 15:46
+ */
+
+?>
+
+<div id="dialog-new-category" class="data-box-container">
+    <h3><?php echo __('New category', 'orcas-responsive-wiki'); ?></h3>
+    <input type="text" id="new-category-name" placeholder="<?php echo __('Category name', 'orcas-responsive-wiki'); ?>"/>
+    <div id="new-category-name-submit" class="btn"><?php echo __('Save', 'orcas-responsive-wiki'); ?></div>
+    <div id="new-category-name-abort" class="btn"><?php echo __('Abort', 'orcas-responsive-wiki'); ?></div>
+</div>
+
+<?php
+
+$sub = $everyOneCanCreateCategories ? "<span class='new-sub-category'>" . __('Add sub category', 'orcas-responsive-wiki') . "</span>" : '';
+
+$tpl = "<li>
+                        <input type='radio' name='wiki-category' id='wiki-category-{{ID}}' value='{{VALUE}}' class='category-radio'/>
+                        <label for='wiki-category-{{ID}}'>{{NAME}}</label>
+                        $sub<ul data-cat-route='{{ROUTE}}'>{{SUB}}</ul></li>";
+
+$html = '<div class="data-box-container" id="category-data-box-container">
+            <div class="input-selection"></div><label id="drop-down-icon" for="category-selection-drop-down"></label><input id="category-selection-drop-down" type="checkbox" style="display: none;" />
+        <ul class="category-selection" id="category-selection-container">';
+
+function subCategories($list, $tpl, $parent = array()) {
+    $html = '';
+
+    foreach($list as $c) {
+        $par = $parent;
+        $sub = '';
+        $par[] = $c['name'];
+        if(isset($c['child']) && count($c['child']) > 0) {
+            $sub = subCategories($c['child'], $tpl, $par);
+        }
+
+        $value = isset($c['value']) ? $c['value'] : $c['name'];
+        $html .= str_replace(array('{{NAME}}', '{{ID}}', '{{SUB}}', '{{ROUTE}}', '{{VALUE}}'), array($c['name'] ,rand(0, 10000), $sub, json_encode($par), $value), $tpl);
+    }
+
+    return $html;
+}
+
+$mainCatNew = $everyOneCanCreateCategories ? "<li><span class='new-sub-category'>" . __('Add category', 'orcas-responsive-wiki') . "</span></li>" : '';
+
+$html .= $mainCatNew . subCategories($categories, $tpl) . '</div></ul>';
+
+echo "<ul id='template-list' style='display: none;'>$tpl</ul>" . $html;

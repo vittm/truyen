@@ -1,0 +1,16 @@
+<div class='search-container'>
+    <input type='text' id='wiki-search' placeholder='<?php echo $placeholder; ?>' />
+    <label id="label-filter-icon" for="search-filter-trigger"><i class="fa fa-filter"></i></label>
+    <input type="checkbox" style="display:none" id="search-filter-trigger" />
+    <div class="search-filter-box">
+        <div class="filter-row">
+            <input id="search-item-1" type="checkbox" value="title" class="search-filter" checked />
+            <label for="search-item-1"><?php echo __('Search in title', 'orcas-responsive-wiki'); ?></label>
+        </div>
+
+        <div class="filter-row">
+            <input id="search-item-2" type="checkbox" value="content" class="search-filter" checked />
+            <label for="search-item-2"><?php echo __('Search in content', 'orcas-responsive-wiki'); ?></label>
+        </div>
+    </div>
+</div>

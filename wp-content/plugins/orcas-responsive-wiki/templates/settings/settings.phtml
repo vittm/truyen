@@ -1,0 +1,43 @@
+<form class="responsive-wiki-settings" method="post">
+    <h1><?php echo __('Who can create and update wiki pages.', 'orcas-responsive-wiki'); ?></h1>
+    <ul>
+        <li>
+            <input <?php echo $createPermission == 1 ? ' checked' : ''; ?> id="create-wiki-permission-everyone" type="radio" name="create-wiki-permission" value="1">
+            <label for="create-wiki-permission-everyone"><?php echo __('Everyone' , 'orcas-responsive-wiki'); ?></label>
+        </li>
+        <li>
+            <input <?php echo $createPermission == 2 ? ' checked' : ''; ?> id="create-wiki-permission-administartors" type="radio" name="create-wiki-permission" value="2">
+            <label for="create-wiki-permission-administartors"><?php echo __('Only administrators' , 'orcas-responsive-wiki'); ?></label>
+        </li>
+        <li>
+            <input <?php echo $createPermission == 3 ? ' checked' : ''; ?> id="create-wiki-permission-specific-roles-and-users" type="radio" name="create-wiki-permission" value="3">
+            <label for="create-wiki-permission-specific-roles-and-users"><?php echo __('Custom permission' , 'orcas-responsive-wiki'); ?></label>
+            <div style="margin: 0 0 0 15px;">
+                <h3><?php echo __('Roles' , 'orcas-responsive-wiki'); ?></h3>
+                <ul class="roles sub-list">
+                    <?php foreach($roles as $slug => $r) { ?>
+                        <li>
+                        <input <?php echo in_array($slug, $permissionRole) ? ' checked' : ''; ?> id="create-wiki-permission-role-<?php echo $slug ?>" type="checkbox" name="create-wiki-permission-roles[]" value="<?php echo $slug ?>">
+                        <label for="create-wiki-permission-role-<?php echo $slug?>"><?php echo $r['name']; ?></label>
+                        </li>
+                    <?php } ?>
+                </ul>
+
+                <h3><?php echo __('Users' , 'orcas-responsive-wiki'); ?></h3>
+                <ul class="users sub-list">
+                    <?php foreach($users as $u) { ?>
+                        <li>
+                        <input <?php echo in_array($u->ID, $permissionUser) ? ' checked' : ''; ?> id="create-wiki-permission-role-<?php echo $u->ID?>" type="checkbox" name="create-wiki-permission-users[]" value="<?php echo $u->ID?>">
+                        <label for="create-wiki-permission-role-<?php echo $u->ID?>"><?php echo $u->display_name; ?></label>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <?php
+    apply_filters('wiki_settings', array());
+        wp_nonce_field( 'admin-settings');
+    ?>
+    <input type="submit" name="settings-submit" class="button button-primary" value="<?php echo __('Save' , 'orcas-responsive-wiki'); ?>">
+</form>

@@ -1,0 +1,41 @@
+
+<div id="wiki-inner" data-nonce="<?php echo $nonce ?>" class="wiki responsive-wiki-context hide-wiki" style="opacity: 0;" data-extensions="<?php echo join(',',$wikiJsExtensions)?>" <?php echo $peFileDataAttributes; ?>>
+    <div class="slide-context slide-context-main">
+        <div class="slide wiki-view">
+            <div>
+                <?php if($allowCreate) { ?>
+                <button title="<?php echo __('Add wiki', 'orcas-responsive-wiki'); ?>" class="btn btn-new-wiki"><?php echo __('Add wiki', 'orcas-responsive-wiki'); ?></button>
+                <?php } ?>
+                <h3 class="detail-header list-page-header<?php echo !$allowCreate ? ' full-row-header' : ''?>"><span><?php echo __('Wiki', 'orcas-responsive-wiki'); ?></span><span class="small"></h3>
+            </div>
+            <?php do_action('wiki_before_list', $this->pluginVars); ?>
+                <div class="wiki-list pinterest-style">
+
+                    <?php echo $list; ?>
+                </div>
+            <?php do_action('wiki_after_list', $this->pluginVars); ?>
+                <figure class="loader">
+                    <div></div><div></div>
+                    <div></div><div></div>
+                    <div></div><div></div>
+                    <div></div><div></div>
+                </figure>
+        </div>
+        <div class="slide multi-content-slide">
+            <div class="slide-context slide-context-secondary">
+                <div class="slide">
+                    <?php include "wiki-details.php"; ?>
+                </div>
+                <div class="slide">
+                    <?php include "new-wiki-form.php"; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<figure class="loader wiki-initial-loader" style="display: block;">
+    <div></div><div></div>
+    <div></div><div></div>
+    <div></div><div></div>
+    <div></div><div></div>
+</figure>

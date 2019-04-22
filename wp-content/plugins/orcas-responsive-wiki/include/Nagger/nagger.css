@@ -1,0 +1,24 @@
+.orcas-nagger {
+  border-left: solid 5px #ef8613;
+  background-color: #FFF9F2; }
+  .orcas-nagger p.dismissible span {
+    display: none;
+    margin-left: 5px; }
+    .orcas-nagger p.dismissible span a {
+      margin: 0 5px;
+      position: relative; }
+      .orcas-nagger p.dismissible span a:not(:last-child)::after {
+        content: '';
+        display: block;
+        top: -2px;
+        bottom: -2px;
+        right: -5px;
+        width: 1px;
+        background: #000;
+        position: absolute; }
+  .orcas-nagger p.dismissible:hover a {
+    font-weight: bold; }
+  .orcas-nagger:hover p span {
+    display: inline; }
+
+/*# sourceMappingURL=nagger.css.map */

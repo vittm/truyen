@@ -1,0 +1,36 @@
+.has-piece-complete {
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif; }
+  .has-piece-complete + .piece-complete {
+    position: absolute;
+    min-width: 150px;
+    max-height: 200px;
+    overflow: auto;
+    border-top: 1px solid #cdcdcd;
+    border-bottom: 1px solid #cdcdcd; }
+    .has-piece-complete + .piece-complete > .piece-list {
+      border: 1px solid #cdcdcd;
+      border-bottom: 0;
+      border-top: 0;
+      margin: 0;
+      padding: 0; }
+      .has-piece-complete + .piece-complete > .piece-list li {
+        list-style-type: none;
+        padding: 2px 0 2px 5px;
+        border-bottom: 1px solid #cdcdcd;
+        font-family: Arial, Helvetica, sans-serif; }
+      .has-piece-complete + .piece-complete > .piece-list li:last-child {
+        border-bottom: 0 !important; }
+      .has-piece-complete + .piece-complete > .piece-list li:nth-child(odd) {
+        background: #f5f5f5; }
+      .has-piece-complete + .piece-complete > .piece-list li:nth-child(even) {
+        background: #fff; }
+      .has-piece-complete + .piece-complete > .piece-list li.piece-fast-selection {
+        background: #f0ffff;
+        background: linear-gradient(to bottom, #f7fbfc 0%, #d9edf2 40%, #add9e4 100%); }
+      .has-piece-complete + .piece-complete > .piece-list li.piece-selection {
+        font-weight: bold;
+        background: #e1e1e1;
+        background: linear-gradient(to bottom, #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%); }
+
+/*# sourceMappingURL=pieceComplete.css.map */

@@ -1,0 +1,74 @@
+<div class="orcas-plugin-item">
+    <div class="inner">
+    <div class="orcas-plugin-item-image">
+        <img width="150" height="150" src="<?php echo $item['image']; ?>" />
+    </div>
+    <div class="orcas-plugin-item-details">
+        <div class="orcas-plugin-item-name">
+            <?php echo $item['name']; ?>
+            <?php echo
+            file_exists(\de\orcas\extension\UpdateService::getPluginDir() . DIRECTORY_SEPARATOR . "$item[slug]" . DIRECTORY_SEPARATOR . "$item[slug].php") &&
+            $item['free'] == 1 &&
+            !\de\orcas\extension\UpdateService::isInstalled($item['slug'])
+                ? \de\orcas\extension\ShopItems::addButton('install', $item['slug'], __('Activate', 'orcas-upgrade')) : '';?>
+
+            <?php echo
+            !file_exists(\de\orcas\extension\UpdateService::getPluginDir() . DIRECTORY_SEPARATOR . "$item[slug]" . DIRECTORY_SEPARATOR . "$item[slug].php") &&
+            $item['free'] == 1 &&
+            !\de\orcas\extension\UpdateService::isInstalled($item['slug']) ?
+                \de\orcas\extension\ShopItems::addButton('download', $item['slug'], __('Install', 'orcas-upgrade')) : ''; ?>
+
+            <?php echo
+                $item['free'] != 1 &&
+                \de\orcas\extension\UpdateService::isInstalled($item['slug']) &&
+                !\de\orcas\extension\UpdateService::isProInstalled($item['slug']) &&
+                isset($item['ugradable']) && $item['ugradable'] ?
+                    \de\orcas\extension\ShopItems::addButton('upgrade', $item['slug'], __('Upgrade', 'orcas-upgrade')) : ''; ?>
+
+            <?php echo
+            $item['free'] != 1 &&
+            ((isset($item['ugradable']) && !$item['ugradable']) || !isset($item['ugradable'])) ?
+                "<a target='_blank' href='$item[product]' >" . __('Buy', 'orcas-upgrade') . "</a>" : '' ?>
+
+
+            <?php echo
+            !file_exists(\de\orcas\extension\UpdateService::getPluginDir() . DIRECTORY_SEPARATOR . "$item[slug]" . DIRECTORY_SEPARATOR . "$item[slug].php") &&
+            $item['free'] != 1 &&
+            !\de\orcas\extension\UpdateService::isInstalled($item['slug']) &&
+            isset($item['ugradable']) && $item['ugradable']
+                ? \de\orcas\extension\ShopItems::addButton('pro-download', $item['slug'], __('Install', 'orcas-upgrade')) : ''; ?>
+
+            <?php echo
+                file_exists(\de\orcas\extension\UpdateService::getPluginDir() . DIRECTORY_SEPARATOR . "$item[slug]" . DIRECTORY_SEPARATOR . "$item[slug].php") &&
+                $item['free'] != 1 &&
+                !\de\orcas\extension\UpdateService::isInstalled($item['slug']) &&
+                isset($item['ugradable']) && $item['ugradable']
+                    ? \de\orcas\extension\ShopItems::addButton('pro-install', $item['slug'], __('Activate', 'orcas-upgrade')) : ''; ?>
+
+
+            <?php echo
+            $item['free'] != 1 &&
+            \de\orcas\extension\UpdateService::isProInstalled($item['slug']) &&
+            \de\orcas\extension\UpdateService::isInstalled($item['slug']) &&
+                isset($item['ugradable']) && $item['ugradable']
+                ? \de\orcas\extension\ShopItems::addButton('downgrade', $item['slug'], __('Uninstall', 'orcas-upgrade')) : '';?>
+
+            <?php echo
+            $item['free'] == 1 &&
+            \de\orcas\extension\UpdateService::isInstalled($item['slug'])
+                ? \de\orcas\extension\ShopItems::addButton('uninstall', $item['slug'], __('Uninstall', 'orcas-upgrade')) : '';?>
+        </div>
+        <div class="orcas-plugin-item-details-content">
+            <?php echo $item['description']; ?>
+        </div>
+        <div class="orcas-plugin-item-links">
+            <a href="/"><?php echo __('Details', 'orcas-upgrade'); ?></a>
+            <a href="/"><?php echo __('Settings', 'orcas-upgrade'); ?></a>
+        </div>
+        <div class="orcas-plugin-item-compatibel">
+            <span> <?php echo __('Compatibel', 'orcas-upgrade'); ?></span>
+            <?php echo __('with your WordPress version', 'orcas-upgrade'); ?>
+        </div>
+    </div>
+    </div>
+</div>

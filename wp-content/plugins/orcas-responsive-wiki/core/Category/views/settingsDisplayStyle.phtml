@@ -1,0 +1,111 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: michael.kirchner
+ * Date: 21.06.18
+ * Time: 13:29
+ */
+
+$icons = '<li><input type="radio" id="icon-none-{{PLACEHOLDER}}" class="icon" name="icon-{{PLACEHOLDER}}" value=""/><label for="icon-none-{{PLACEHOLDER}}">' . __('None', 'orcas-responsive-wiki') . '</label></li>';
+
+foreach($iconList as $i) {
+    $icons .= '<li><input type="radio" id="icon-' . $i . '-{{PLACEHOLDER}}" value="fa ' . $i . '" class="icon" name="icon-{{PLACEHOLDER}}"/><label for="icon-' . $i . '-{{PLACEHOLDER}}"><i class="fa ' . $i . '"></i></label></li>';
+}
+
+$categoryTemplate = '<li class="dd-item dd3-item" id="{{ID}}" data-icon="{{ICON}}" data-old="{{NAME}}" data-new="{{NAME}}">
+           
+            <div class="position-relative">
+                <div class="dd-handle dd3-handle">Drag</div>
+                <div class="dd3-content">
+                    <input type="text" class="editable-category-name" value="{{NAME}}"/>
+                    <div class="icons-my-container">
+                        <div class="open-icons">' . __("Icons", "responsive-wiki") . '</div>
+                        <div class="icon-selection-container">
+                            <ul class="icon-selection">{{ICON_LIST}}</ul>
+                            <div class="button button-primary close-icon-list">' .__("Ok", "orcas-responsive-wiki") . '</div>
+                        </div>
+                    </div>
+                    <div class="button button-primary remove-icon">' . __("Remove", "orcas-responsive-wiki") . '</div>
+                </div>
+            </div>
+            {{SUBLIST}}
+        </li>';
+?>
+<div id="orcas-wiki-wrapper">
+    <div id="orcas-wiki-header">
+        <div id="orcas-wiki-logo">
+            <img src="http://openspaces.de.local/wp-content/plugins/eonet-live-notifications/core/assets/images/logo_colored.png">
+        </div>
+        <div id="orcas-wiki-nav">
+            <ul>
+                <li class="orcas-wiki-nav-item"><a href="?page=responsive-wiki-settings&tab=1"><i class="fa-permissons"></i><h4>Permissons</h4></a></li>
+                <li class="orcas-wiki-nav-item is-active"><a href="?page=responsive-wiki-settings&tab=2"><i class="fa-design"></i><h4>Design</h4></a></li>
+                <li class="orcas-wiki-nav-item"><a href="?page=responsive-wiki-settings&tab=3"><i class="fa-categories"></i><h4>Categories</h4></a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="orcas-wiki-content">
+        <div id="orcas-wiki-content-title">
+            <h1>Design</h1>
+        </div>
+        <div id="orcas-wiki-content-settings">
+            <ul class="orcas-wiki-content-ul-first">
+                <li>
+
+                </li>
+            </ul>
+            <div class="orcas-wiki-inner-content">
+                <div class="orcas-wiki-content-text">
+                    <div id="orcas-wiki-content-design-style" class="orcas-wiki-content-wrapper">
+                        <div class="orcas-wiki-content-inner-wrapper">
+                            <label class="label-inner-wrapper"><?php echo __('Listing Style', 'orcas-responsive-wiki'); ?></label>
+                            <div class="orcas-wiki-listing-style">
+                                <ul>
+                                    <li><input id="listing-type-alphabetical" type="radio" name="listing-type" value="alphabetical" <?php echo $sorting=='alphabetical'?'checked':'';?> /><label for="listing-type-alphabetical"><?php echo __('Alphabetical', 'orcas-responsive-wiki'); ?></label></li>
+                                    <li><input id="listing-type-category" type="radio" name="listing-type" value="category" <?php echo $sorting=='category'?'checked':'';?> /><label for="listing-type-category"><?php echo __('Categories', 'orcas-responsive-wiki'); ?></label></li>
+                                    <li><input id="listing-type-category-box" type="radio" name="listing-type" value="category-box" <?php echo $sorting=='category-box'?'checked':'';?> /><label for="listing-type-category-box"><?php echo __('Categories box', 'orcas-responsive-wiki'); ?></label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="orcas-wiki-content-custom-style" class="orcas-wiki-content-wrapper">
+                        <div class="orcas-wiki-content-inner-wrapper">
+                            <label class="label-inner-wrapper"><?php echo __('Custom Style for "Categories Box"', 'orcas-responsive-wiki'); ?></label>
+                            <div class="orcas-wiki-inner-custom-style">
+                                <div class="orcas-wiki-custom-border orcas-wiki-custom-input">
+                                    <label><?php echo __('Border Style', 'orcas-responsive-wiki'); ?></label>
+                                    <input type="text" class="custom-border-color-picker" value="" />
+                                </div>
+                                <div class="orcas-wiki-custom-icon orcas-wiki-custom-input">
+                                    <label><?php echo __('Icon Style', 'orcas-responsive-wiki'); ?></label>
+                                    <input type="text" class="custom-icon-color-picker" value="" />
+                                </div>
+                                <div class="orcas-wiki-custom-hover orcas-wiki-custom-input">
+                                    <label><?php echo __('Hover Style', 'orcas-responsive-wiki'); ?></label>
+                                    <input type="text" class="custom-hover-color-picker" value="" />
+                                </div>
+                                <div class="orcas-wiki-custom-text orcas-wiki-custom-input">
+                                    <label><?php echo __('Text Style', 'orcas-responsive-wiki'); ?></label>
+                                    <input type="text" class="custom-text-color-picker" value="" />
+                                </div>
+                                <div class="wiki-content-categories-box">
+                                    <div id="wiki-content-custom-box">
+                                       <div class="wiki-content-custom-sub-box">
+                                           <div class="wiki-content-custom-test-icon">
+                                               <i></i>
+                                           </div>
+                                           <h2 class="wiki-content-custom-test-text">
+                                                Custom Text
+                                           </h2>
+                                           <div class="wiki-content-custom-test-numbers">
+                                               Items 33
+                                           </div>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+

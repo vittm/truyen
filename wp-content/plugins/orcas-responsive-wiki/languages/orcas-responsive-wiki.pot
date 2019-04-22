@@ -1,0 +1,134 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: orcas Responsive Wiki\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-05 09:49+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#. Name of the plugin
+#: widgets/elementor-widget.php:42
+msgid "orcas Responsive Wiki"
+msgstr ""
+
+#: widgets/elementor-widget.php:85
+msgid "Shortcode"
+msgstr ""
+
+#: widgets/elementor-widget.php:92
+msgid "view_wiki"
+msgstr ""
+
+#: templates/wiki-details.php:3 templates/new-wiki-form.php:3
+#: templates/new-wiki-form.php:3 core/ShortCode.php:56 core/ShortCode.php:74
+msgid "Back"
+msgstr ""
+
+#: templates/wiki-details.php:6
+msgid "Edit"
+msgstr ""
+
+#: templates/new-wiki-form.php:4
+msgid "New wiki"
+msgstr ""
+
+#: templates/new-wiki-form.php:4
+msgid "Update wiki"
+msgstr ""
+
+#: templates/new-wiki-form.php:22
+msgid "Choose a value"
+msgstr ""
+
+#: templates/new-wiki-form.php:62
+msgid "Save"
+msgstr ""
+
+#: templates/new-wiki-form.php:69
+msgid "Delete"
+msgstr ""
+
+#: core/wiki.php:78
+msgid "Title:"
+msgstr ""
+
+#: core/wiki.php:85
+msgid "Content:"
+msgstr ""
+
+#: core/wiki.php:91
+msgid ""
+"Use the keyword \"<strong>wiki:</strong>\" to create a link to an other "
+"existing Wiki page. <br />Notice: You need a space before the keyword."
+msgstr ""
+
+#: core/wiki.php:103 core/wiki.php:104
+#: extension/BuddyPress/BuddyPressExtension.php:33
+msgid "Wiki"
+msgstr ""
+
+#: core/ShortCode.php:39
+msgid "Add wiki"
+msgstr ""
+
+#: extension/Revision/Revision.php:37
+msgid "Revision list"
+msgstr ""
+
+#: extension/Revision/Revision.php:37
+msgid "History"
+msgstr ""
+
+#: extension/Category/Category.php:29 core/Category/Category.php:64
+msgid "Category:"
+msgstr ""
+
+#: extension/BuddyPress/BuddyPressExtension.php:118
+msgid "Save changes"
+msgstr ""
+
+#: core/Search/Search.php:45
+msgid "Search ..."
+msgstr ""
+
+#: core/Search/Search.php:89
+msgid "Results"
+msgstr ""
+
+#: core/Search/Search.php:99
+msgid "No result"
+msgstr ""
+
+#: core/Category/Category.php:37
+msgid "Top level category"
+msgstr ""
+
+#: core/Category/Category.php:60
+msgid "None"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Buddypress wiki where registered users in the frontend can edit the same "
+"document after each other."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://www.orcas.de/wordpress-plugin/wiki/"
+msgstr ""
+
+#. Author of the plugin
+msgid "orcas"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.orcas.de/"
+msgstr ""

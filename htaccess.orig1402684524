@@ -1,0 +1,13 @@
+# This file was updated by Duplicator Pro on 2019-04-17 06:50:02.
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /truyen/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /truyen/index.php [L]
+</IfModule>
+
+# END WordPress

@@ -1,0 +1,491 @@
+#responsive-wiki-context {
+  transition: all 1.25s linear;
+  width: 100%; }
+
+ul li, ol li {
+  margin: 0 !important; }
+
+.list-categories-item {
+  position: relative; }
+  .list-categories-item .collapse-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 35px;
+    right: 0;
+    cursor: pointer; }
+    .list-categories-item .collapse-overlay + input:checked + ul {
+      display: block !important; }
+    .list-categories-item .collapse-overlay + input + ul {
+      display: none; }
+
+#wiki-category .data-box-container ul.category-selection {
+  margin: 0 !important; }
+  #wiki-category .data-box-container ul.category-selection li {
+    min-height: 25px;
+    list-style-type: none; }
+    #wiki-category .data-box-container ul.category-selection li input[type="radio"] {
+      display: none; }
+      #wiki-category .data-box-container ul.category-selection li input[type="radio"] + label {
+        position: relative; }
+      #wiki-category .data-box-container ul.category-selection li input[type="radio"] + label:before {
+        content: " ";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #cdcdcd;
+        position: absolute;
+        left: -25px;
+        top: 2px;
+        cursor: pointer; }
+    #wiki-category .data-box-container ul.category-selection li input[type="radio"]:checked + label:after {
+      content: " ";
+      position: absolute;
+      width: 5px;
+      height: 12px;
+      transform: rotate(45deg);
+      left: -17px;
+      top: 5px;
+      border-bottom: 2px solid #CDCDCD;
+      border-right: 2px solid #cdcdcd; }
+    #wiki-category .data-box-container ul.category-selection li input, #wiki-category .data-box-container ul.category-selection li label {
+      margin: 0 !important; }
+
+.full-row-header {
+  width: 100% !important; }
+
+.responsive-wiki-settings label {
+  margin-right: 10px; }
+.responsive-wiki-settings input {
+  margin: -2px 0px 0 0; }
+
+.note-children-container .active {
+  background: #cdcdcd;
+  color: #000; }
+
+.wiki-modal {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  z-index: 5000;
+  background: #fff;
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  width: 600px;
+  margin-left: -300px;
+  padding: 10px 15px 0 15px;
+  box-shadow: 0 4px 2px -3px;
+  display: none; }
+  .wiki-modal .note-btn-group button {
+    width: 50px !important; }
+  .wiki-modal #wiki-form-back-btn {
+    display: none !important; }
+  .wiki-modal .back-from-form + #responsive-wiki-form {
+    width: 100% !important;
+    margin: 0 !important; }
+  .wiki-modal .wiki-delete-beside-save {
+    bottom: 0 !important;
+    left: initial !important;
+    right: 15px;
+    display: none; }
+  .wiki-modal #form-create-close-btn {
+    display: inline-block !important;
+    position: absolute;
+    right: 15px;
+    bottom: 20px; }
+
+.category-icon {
+  font-size: 20px;
+  margin-right: 5px; }
+
+.wiki-entries > i {
+  margin: 0 5px 0 0; }
+
+html body #responsive-wiki-context.responsive-wiki .btn, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .btn, .wiki-modal .responsive-wiki .btn {
+  margin: 0px -1px;
+  background: #fff;
+  background-color: #fff !important;
+  border: 1px solid #cdcdcd;
+  border-radius: 2px;
+  width: 85px;
+  height: 32px;
+  padding: 4px 10px;
+  font-weight: normal;
+  font-family: arial;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #777 !important;
+  outline: none;
+  transition: all 0.3s linear; }
+html body #responsive-wiki-context.responsive-wiki .wiki-list, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-list, .wiki-modal .responsive-wiki .wiki-list {
+  padding: 25px 0; }
+  html body #responsive-wiki-context.responsive-wiki .wiki-list .wiki-list-collection, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-list .wiki-list-collection, .wiki-modal .responsive-wiki .wiki-list .wiki-list-collection {
+    list-style-type: none;
+    padding: 5px 0 0 0; }
+    html body #responsive-wiki-context.responsive-wiki .wiki-list .wiki-list-collection li, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-list .wiki-list-collection li, .wiki-modal .responsive-wiki .wiki-list .wiki-list-collection li {
+      cursor: pointer;
+      color: #777; }
+    html body #responsive-wiki-context.responsive-wiki .wiki-list .wiki-list-collection li:hover, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-list .wiki-list-collection li:hover, .wiki-modal .responsive-wiki .wiki-list .wiki-list-collection li:hover {
+      color: #000; }
+html body #responsive-wiki-context.responsive-wiki .category-block, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .category-block, .wiki-modal .responsive-wiki .category-block {
+  width: calc(25% - 35px);
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0 0 30px; }
+html body #responsive-wiki-context.responsive-wiki .category-header, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .category-header, .wiki-modal .responsive-wiki .category-header {
+  display: inline-block;
+  color: #444;
+  font-size: 20px;
+  cursor: default; }
+html body #responsive-wiki-context.responsive-wiki .icon-style, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .icon-style, .wiki-modal .responsive-wiki .icon-style {
+  color: #777;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 20px; }
+html body #responsive-wiki-context.responsive-wiki .icon-style:hover, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .icon-style:hover, .wiki-modal .responsive-wiki .icon-style:hover {
+  color: #000; }
+html body #responsive-wiki-context.responsive-wiki .wiki-icon-list, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-icon-list, .wiki-modal .responsive-wiki .wiki-icon-list {
+  float: right; }
+  html body #responsive-wiki-context.responsive-wiki .wiki-icon-list i, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-icon-list i, .wiki-modal .responsive-wiki .wiki-icon-list i {
+    color: #777;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+    width: 20px; }
+  html body #responsive-wiki-context.responsive-wiki .wiki-icon-list i:hover, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-icon-list i:hover, .wiki-modal .responsive-wiki .wiki-icon-list i:hover {
+    color: #000; }
+html body #responsive-wiki-context.responsive-wiki .wiki-content, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-content, .wiki-modal .responsive-wiki .wiki-content {
+  color: #777;
+  font-family: arial; }
+  html body #responsive-wiki-context.responsive-wiki .wiki-content .wiki-page-sub-headline, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-content .wiki-page-sub-headline, .wiki-modal .responsive-wiki .wiki-content .wiki-page-sub-headline {
+    color: #444;
+    font-size: 20px;
+    margin: 0 0 5px 0;
+    border-bottom: 1px solid #cdcdcd; }
+html body #responsive-wiki-context.responsive-wiki .wiki, html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki, .wiki-modal .responsive-wiki .wiki, .wiki-modal .responsive-wiki #wiki-inner.wiki {
+  overflow: hidden; }
+  html body #responsive-wiki-context.responsive-wiki .wiki .slide-context, html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki .slide-context, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki .slide-context, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki .slide-context, .wiki-modal .responsive-wiki .wiki .slide-context, .wiki-modal .responsive-wiki #wiki-inner.wiki .slide-context {
+    transition: margin 0.5s linear;
+    background: white; }
+    html body #responsive-wiki-context.responsive-wiki .wiki .slide-context .slide, html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki .slide-context .slide, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki .slide-context .slide, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki .slide-context .slide, .wiki-modal .responsive-wiki .wiki .slide-context .slide, .wiki-modal .responsive-wiki #wiki-inner.wiki .slide-context .slide {
+      box-sizing: border-box;
+      transition: opacity 0.5s linear;
+      height: auto !important;
+      overflow: hidden;
+      min-height: 300px; }
+html body #responsive-wiki-context.responsive-wiki .wiki-page, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-page, .wiki-modal .responsive-wiki .wiki-page {
+  padding: 25px; }
+html body #responsive-wiki-context.responsive-wiki .wiki .no-transition, html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki .no-transition, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki .no-transition, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki .no-transition, .wiki-modal .responsive-wiki .wiki .no-transition, .wiki-modal .responsive-wiki #wiki-inner.wiki .no-transition {
+  transition: none !important; }
+html body #responsive-wiki-context.responsive-wiki .wiki .slide-context .slide .note-editor .note-toolbar-wrapper button.btn, html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki .slide-context .slide .note-editor .note-toolbar-wrapper button.btn, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki .slide-context .slide .note-editor .note-toolbar-wrapper button.btn, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki .slide-context .slide .note-editor .note-toolbar-wrapper button.btn, .wiki-modal .responsive-wiki .wiki .slide-context .slide .note-editor .note-toolbar-wrapper button.btn, .wiki-modal .responsive-wiki #wiki-inner.wiki .slide-context .slide .note-editor .note-toolbar-wrapper button.btn {
+  width: auto;
+  min-width: 30px;
+  padding: 5px 10px; }
+html body #responsive-wiki-context.responsive-wiki .wiki .slide-context .slide .dropdown-toggle:after, html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki .slide-context .slide .dropdown-toggle:after, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki .slide-context .slide .dropdown-toggle:after, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki .slide-context .slide .dropdown-toggle:after, .wiki-modal .responsive-wiki .wiki .slide-context .slide .dropdown-toggle:after, .wiki-modal .responsive-wiki #wiki-inner.wiki .slide-context .slide .dropdown-toggle:after {
+  display: none; }
+html body #responsive-wiki-context.responsive-wiki .wiki .slide-context .slide .btn, html body #responsive-wiki-context.responsive-wiki .wiki .slide-context .slide button.btn, html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki .slide-context .slide .btn, html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki .slide-context .slide button.btn, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki .slide-context .slide .btn, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki .slide-context .slide button.btn, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki .slide-context .slide .btn, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki .slide-context .slide button.btn, .wiki-modal .responsive-wiki .wiki .slide-context .slide .btn, .wiki-modal .responsive-wiki .wiki .slide-context .slide button.btn, .wiki-modal .responsive-wiki #wiki-inner.wiki .slide-context .slide .btn, .wiki-modal .responsive-wiki #wiki-inner.wiki .slide-context .slide button.btn {
+  margin: 0px -1px;
+  background: #fff;
+  background-color: #fff !important;
+  border: 1px solid #cdcdcd;
+  border-radius: 2px;
+  width: 130px;
+  height: 32px;
+  padding: 4px 10px;
+  font-weight: normal;
+  font-family: arial;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #777 !important;
+  outline: none;
+  transition: all 0.3s linear; }
+html body #responsive-wiki-context.responsive-wiki .wiki .slide-context .slide .btn:hover, html body #responsive-wiki-context.responsive-wiki .wiki .slide-context .slide button.btn:hover, html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki .slide-context .slide .btn:hover, html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki .slide-context .slide button.btn:hover, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki .slide-context .slide .btn:hover, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki .slide-context .slide button.btn:hover, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki .slide-context .slide .btn:hover, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki .slide-context .slide button.btn:hover, .wiki-modal .responsive-wiki .wiki .slide-context .slide .btn:hover, .wiki-modal .responsive-wiki .wiki .slide-context .slide button.btn:hover, .wiki-modal .responsive-wiki #wiki-inner.wiki .slide-context .slide .btn:hover, .wiki-modal .responsive-wiki #wiki-inner.wiki .slide-context .slide button.btn:hover {
+  color: #000;
+  border: 1px solid #777; }
+html body #responsive-wiki-context.responsive-wiki .wiki .slide-context .slide .wiki-page table thead tr, html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki .slide-context .slide .wiki-page table thead tr, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki .slide-context .slide .wiki-page table thead tr, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki .slide-context .slide .wiki-page table thead tr, .wiki-modal .responsive-wiki .wiki .slide-context .slide .wiki-page table thead tr, .wiki-modal .responsive-wiki #wiki-inner.wiki .slide-context .slide .wiki-page table thead tr {
+  background: #eeeeee; }
+  html body #responsive-wiki-context.responsive-wiki .wiki .slide-context .slide .wiki-page table thead tr td, html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki .slide-context .slide .wiki-page table thead tr td, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki .slide-context .slide .wiki-page table thead tr td, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki .slide-context .slide .wiki-page table thead tr td, .wiki-modal .responsive-wiki .wiki .slide-context .slide .wiki-page table thead tr td, .wiki-modal .responsive-wiki #wiki-inner.wiki .slide-context .slide .wiki-page table thead tr td {
+    padding-left: 10px; }
+html body #responsive-wiki-context.responsive-wiki .wiki .slide-context .slide .wiki-page table tr td, html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki .slide-context .slide .wiki-page table tr td, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki .slide-context .slide .wiki-page table tr td, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki .slide-context .slide .wiki-page table tr td, .wiki-modal .responsive-wiki .wiki .slide-context .slide .wiki-page table tr td, .wiki-modal .responsive-wiki #wiki-inner.wiki .slide-context .slide .wiki-page table tr td {
+  padding-left: 15px; }
+html body #responsive-wiki-context.responsive-wiki .wiki .slide-context .slide .wiki-page table tr:nth-child(even), html body #responsive-wiki-context.responsive-wiki #wiki-inner.wiki .slide-context .slide .wiki-page table tr:nth-child(even), body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki .slide-context .slide .wiki-page table tr:nth-child(even), body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki #wiki-inner.wiki .slide-context .slide .wiki-page table tr:nth-child(even), .wiki-modal .responsive-wiki .wiki .slide-context .slide .wiki-page table tr:nth-child(even), .wiki-modal .responsive-wiki #wiki-inner.wiki .slide-context .slide .wiki-page table tr:nth-child(even) {
+  background: #eeeeee; }
+html body #responsive-wiki-context.responsive-wiki .new-wiki-form, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .new-wiki-form, .wiki-modal .responsive-wiki .new-wiki-form {
+  cursor: default; }
+html body #responsive-wiki-context.responsive-wiki .wiki-detail-view, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-detail-view, .wiki-modal .responsive-wiki .wiki-detail-view {
+  bottom: 0;
+  min-height: 300px; }
+  html body #responsive-wiki-context.responsive-wiki .wiki-detail-view img, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-detail-view img, .wiki-modal .responsive-wiki .wiki-detail-view img {
+    margin: 15px; }
+html body #responsive-wiki-context.responsive-wiki .wiki-save, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-save, .wiki-modal .responsive-wiki .wiki-save {
+  display: inline-block; }
+html body #responsive-wiki-context.responsive-wiki .wiki-delete-beside-save, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-delete-beside-save, .wiki-modal .responsive-wiki .wiki-delete-beside-save {
+  position: absolute;
+  bottom: 30px;
+  left: 175px; }
+html body #responsive-wiki-context.responsive-wiki .input-set, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set, .wiki-modal .responsive-wiki .input-set {
+  position: relative;
+  margin-top: 15px; }
+  html body #responsive-wiki-context.responsive-wiki .input-set > select, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set > select, .wiki-modal .responsive-wiki .input-set > select {
+    border-left: 1px solid black;
+    padding: 11px 0px 11px 100px; }
+  html body #responsive-wiki-context.responsive-wiki .input-set > input[type="text"], html body #responsive-wiki-context.responsive-wiki .input-set textarea, html body #responsive-wiki-context.responsive-wiki .input-set .data-box-container, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set > input[type="text"], body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set textarea, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set .data-box-container, .wiki-modal .responsive-wiki .input-set > input[type="text"], .wiki-modal .responsive-wiki .input-set textarea, .wiki-modal .responsive-wiki .input-set .data-box-container {
+    border: 1px solid #cdcdcd !important;
+    background: #fff !important;
+    line-height: 20px !important;
+    box-sizing: border-box;
+    padding: 7px 10px 10px 100px;
+    margin: 0;
+    width: 100%;
+    border-radius: 4px; }
+  html body #responsive-wiki-context.responsive-wiki .input-set > textarea, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set > textarea, .wiki-modal .responsive-wiki .input-set > textarea {
+    padding: 10px 10px 10px 100px;
+    min-height: 200px; }
+  html body #responsive-wiki-context.responsive-wiki .input-set > input[type="text"]:hover, html body #responsive-wiki-context.responsive-wiki .input-set > input[type="text"]:focus, html body #responsive-wiki-context.responsive-wiki .input-set textarea:hover, html body #responsive-wiki-context.responsive-wiki .input-set textarea:focus, html body #responsive-wiki-context.responsive-wiki .input-set .data-box-container:hover, html body #responsive-wiki-context.responsive-wiki .input-set .data-box-container:focus, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set > input[type="text"]:hover, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set > input[type="text"]:focus, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set textarea:hover, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set textarea:focus, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set .data-box-container:hover, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set .data-box-container:focus, .wiki-modal .responsive-wiki .input-set > input[type="text"]:hover, .wiki-modal .responsive-wiki .input-set > input[type="text"]:focus, .wiki-modal .responsive-wiki .input-set textarea:hover, .wiki-modal .responsive-wiki .input-set textarea:focus, .wiki-modal .responsive-wiki .input-set .data-box-container:hover, .wiki-modal .responsive-wiki .input-set .data-box-container:focus {
+    border: 1px solid #777 !important; }
+    html body #responsive-wiki-context.responsive-wiki .input-set > input[type="text"]:hover + label, html body #responsive-wiki-context.responsive-wiki .input-set > input[type="text"]:focus + label, html body #responsive-wiki-context.responsive-wiki .input-set textarea:hover + label, html body #responsive-wiki-context.responsive-wiki .input-set textarea:focus + label, html body #responsive-wiki-context.responsive-wiki .input-set .data-box-container:hover + label, html body #responsive-wiki-context.responsive-wiki .input-set .data-box-container:focus + label, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set > input[type="text"]:hover + label, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set > input[type="text"]:focus + label, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set textarea:hover + label, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set textarea:focus + label, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set .data-box-container:hover + label, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set .data-box-container:focus + label, .wiki-modal .responsive-wiki .input-set > input[type="text"]:hover + label, .wiki-modal .responsive-wiki .input-set > input[type="text"]:focus + label, .wiki-modal .responsive-wiki .input-set textarea:hover + label, .wiki-modal .responsive-wiki .input-set textarea:focus + label, .wiki-modal .responsive-wiki .input-set .data-box-container:hover + label, .wiki-modal .responsive-wiki .input-set .data-box-container:focus + label {
+      color: #444; }
+  html body #responsive-wiki-context.responsive-wiki .input-set > label, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .input-set > label, .wiki-modal .responsive-wiki .input-set > label {
+    position: absolute;
+    top: 10px;
+    font-family: Arial;
+    font-size: 14px;
+    line-height: 1.42857;
+    left: 12px;
+    font-weight: normal;
+    color: #777; }
+html body #responsive-wiki-context.responsive-wiki .multi-content-slide, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .multi-content-slide, .wiki-modal .responsive-wiki .multi-content-slide {
+  position: relative;
+  transition: height 0.3s linear, opacity 0.5s linear !important;
+  padding: 0 !important;
+  overflow: hidden; }
+html body #responsive-wiki-context.responsive-wiki .slide, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .slide, .wiki-modal .responsive-wiki .slide {
+  padding: 30px;
+  vertical-align: top;
+  display: inline-block; }
+html body #responsive-wiki-context.responsive-wiki h3.detail-header, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki h3.detail-header, .wiki-modal .responsive-wiki h3.detail-header {
+  width: calc(100% - 180px);
+  display: inline-block;
+  font-family: arial;
+  margin: 0 0 0 15px;
+  line-height: 33px;
+  color: #444;
+  border-bottom: 1px solid #cdcdcd; }
+  html body #responsive-wiki-context.responsive-wiki h3.detail-header > span.small, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki h3.detail-header > span.small, .wiki-modal .responsive-wiki h3.detail-header > span.small {
+    margin: 0 0 0 10px;
+    font-size: 12px;
+    color: #777; }
+html body #responsive-wiki-context.responsive-wiki .hide-wiki, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .hide-wiki, .wiki-modal .responsive-wiki .hide-wiki {
+  opacity: 0; }
+html body #responsive-wiki-context.responsive-wiki .wiki-initial-loader, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-initial-loader, .wiki-modal .responsive-wiki .wiki-initial-loader {
+  display: block; }
+html body #responsive-wiki-context.responsive-wiki .wiki-breadcrumb, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-breadcrumb, .wiki-modal .responsive-wiki .wiki-breadcrumb {
+  width: calc(100% - 120px);
+  display: inline-block;
+  float: right; }
+html body #responsive-wiki-context.responsive-wiki .wiki-breadcrumb-separator, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-breadcrumb-separator, .wiki-modal .responsive-wiki .wiki-breadcrumb-separator {
+  margin: 0 5px;
+  color: #777; }
+html body #responsive-wiki-context.responsive-wiki .wiki-breadcrumb-current, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .wiki-breadcrumb-current, .wiki-modal .responsive-wiki .wiki-breadcrumb-current {
+  cursor: default;
+  color: #777; }
+html body #responsive-wiki-context.responsive-wiki .btn:hover, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .btn:hover, .wiki-modal .responsive-wiki .btn:hover {
+  color: #000;
+  border: 1px solid #000; }
+html body #responsive-wiki-context.responsive-wiki *[class*="fontawesome-"]:before, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki *[class*="fontawesome-"]:before, .wiki-modal .responsive-wiki *[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif; }
+html body #responsive-wiki-context.responsive-wiki a, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki a, .wiki-modal .responsive-wiki a {
+  text-decoration: none; }
+html body #responsive-wiki-context.responsive-wiki h2, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki h2, .wiki-modal .responsive-wiki h2 {
+  font-size: 32px;
+  line-height: 20px;
+  margin: 4px 0 !important;
+  font-weight: 400 !important; }
+html body #responsive-wiki-context.responsive-wiki h3, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki h3, .wiki-modal .responsive-wiki h3 {
+  font-size: 24px;
+  line-height: 24px;
+  margin: 5px 0; }
+html body #responsive-wiki-context.responsive-wiki table, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki table, .wiki-modal .responsive-wiki table {
+  border-spacing: 0;
+  width: 100%; }
+html body #responsive-wiki-context.responsive-wiki i.icon:hover, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki i.icon:hover, .wiki-modal .responsive-wiki i.icon:hover {
+  cursor: pointer;
+  color: #444; }
+html body #responsive-wiki-context.responsive-wiki .list, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .list, .wiki-modal .responsive-wiki .list {
+  margin-top: 20px; }
+html body #responsive-wiki-context.responsive-wiki .note-color-btn, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .note-color-btn, .wiki-modal .responsive-wiki .note-color-btn {
+  width: 20px !important;
+  height: 20px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 1px solid #fff !important;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  -webkit-appearance: button;
+  cursor: pointer; }
+html body #responsive-wiki-context.responsive-wiki .note-color-reset, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .note-color-reset, .wiki-modal .responsive-wiki .note-color-reset {
+  width: 100% !important;
+  padding: 0 3px !important;
+  margin: 3px !important;
+  float: none !important;
+  font-size: 11px;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
+html body #responsive-wiki-context.responsive-wiki .check-btn, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .check-btn, .wiki-modal .responsive-wiki .check-btn {
+  width: 100%; }
+html body #responsive-wiki-context.responsive-wiki input[type=checkbox], body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki input[type=checkbox], .wiki-modal .responsive-wiki input[type=checkbox] {
+  display: none; }
+  html body #responsive-wiki-context.responsive-wiki input[type=checkbox] + label, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki input[type=checkbox] + label, .wiki-modal .responsive-wiki input[type=checkbox] + label {
+    position: static;
+    padding: 0 0 0 30px;
+    cursor: pointer; }
+  html body #responsive-wiki-context.responsive-wiki input[type=checkbox] + label:after, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki input[type=checkbox] + label:after, .wiki-modal .responsive-wiki input[type=checkbox] + label:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #cdcdcd;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px; }
+html body #responsive-wiki-context.responsive-wiki input[type=checkbox] + label, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki input[type=checkbox] + label, .wiki-modal .responsive-wiki input[type=checkbox] + label {
+  color: #444; }
+html body #responsive-wiki-context.responsive-wiki input[type=checkbox] + label:hover:after, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki input[type=checkbox] + label:hover:after, .wiki-modal .responsive-wiki input[type=checkbox] + label:hover:after {
+  border: 1px solid #777; }
+html body #responsive-wiki-context.responsive-wiki input[type=checkbox]:checked + label:before, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki input[type=checkbox]:checked + label:before, .wiki-modal .responsive-wiki input[type=checkbox]:checked + label:before {
+  content: " ";
+  position: absolute;
+  top: 2px;
+  left: 7px;
+  height: 14px;
+  width: 7px;
+  transform: rotate(45deg);
+  border-right: 2px solid #cdcdcd;
+  border-bottom: 2px solid #cdcdcd; }
+html body #responsive-wiki-context.responsive-wiki input[type=checkbox]:checked:hover + label:before, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki input[type=checkbox]:checked:hover + label:before, .wiki-modal .responsive-wiki input[type=checkbox]:checked:hover + label:before {
+  border-right: 2px solid #777;
+  border-bottom: 2px solid #777; }
+html body #responsive-wiki-context.responsive-wiki .print-btn, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .print-btn, .wiki-modal .responsive-wiki .print-btn {
+  padding: 1px 14px 5px 14px; }
+
+@media only screen and (max-width: 600px) {
+  body .responsive-wiki h3, body #content-container #buddypress .responsive-wiki h3 {
+    font-size: 16px !important;
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    text-align: left; }
+
+  body .responsive-wiki .wiki .slide-context .slide .btn, body .responsive-wiki .wiki .slide-context .slide button.btn, body #content-container #buddypress .responsive-wiki .wiki .slide-context .slide .btn, body #content-container #buddypress .responsive-wiki .wiki .slide-context .slide button.btn {
+    display: block !important; }
+
+  body .responsive-wiki .wiki-page, body #content-container #buddypress .responsive-wiki .wiki-page {
+    padding: 10px 0px !important; }
+
+  body .responsive-wiki .category-block, body #content-container #buddypress .responsive-wiki .category-block {
+    width: 100% !important;
+    display: block !important;
+    text-align: left;
+    vertical-align: top;
+    padding-left: 15px;
+    padding-right: 15px; }
+
+  body .responsive-wiki .category-header, body #content-container #buddypress .responsive-wiki .category-header {
+    font-size: 16px; }
+
+  body .responsive-wiki .wiki-list .wiki-list-collection, body #content-container #buddypress .responsive-wiki .wiki-list .wiki-list-collection {
+    padding: 0; }
+
+  body .responsive-wiki .wiki-breadcrumb, body #content-container #buddypress .responsive-wiki .wiki-breadcrumb {
+    width: 100%;
+    display: inline-block;
+    float: none;
+    text-align: left; }
+
+  body .responsive-wiki .wiki .slide-context .slide, body #content-container #buddypress .responsive-wiki .wiki .slide-context .slide {
+    overflow: hidden !important; }
+
+  body .responsive-wiki .wiki .slide-context .slide .wiki-page table tr td, body #content-container #buddypress .responsive-wiki .wiki .slide-context .slide .wiki-page table tr td {
+    padding: 2px; }
+
+  body .responsive-wiki .wiki .slide-context .slide .wiki-page table thead tr td, body #content-container #buddypress .responsive-wiki .wiki .slide-context .slide .wiki-page table thead tr td {
+    padding-left: 0px; } }
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 600px;
+    margin: 120px auto; } }
+.modal-backdrop {
+  display: none; }
+
+.tooltip-inner {
+  display: none !important; }
+
+.btn-fullscreen {
+  display: none !important; }
+
+.responsive-wiki-data-container .btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0 !important; }
+
+html body .note-popover {
+  display: none; }
+
+html body .note-table-popover {
+  position: absolute;
+  text-align: center;
+  z-index: 1060;
+  padding: 1px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: 1.42857;
+  width: 300px;
+  text-decoration: none;
+  text-shadow: none;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  font-size: 14px;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+
+.note-popover .popover-content .note-para .dropdown-menu, .panel-heading.note-toolbar .note-para .dropdown-menu {
+  min-width: 244px; }
+
+html body #responsive-wiki-context.responsive-wiki .pinterest-style, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .pinterest-style {
+  padding: 0;
+  column-width: 260px;
+  column-gap: 15px !important;
+  width: 90%;
+  max-width: 1100px;
+  margin: 50px auto; }
+  html body #responsive-wiki-context.responsive-wiki .pinterest-style .category-block, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .pinterest-style .category-block {
+    vertical-align: unset;
+    width: 100%;
+    background: #fefefe;
+    margin: 0px 2px 15px 3px;
+    padding: 15px;
+    padding-bottom: 10px;
+    transition: opacity .4s ease-in-out;
+    column-break-inside: avoid; }
+    html body #responsive-wiki-context.responsive-wiki .pinterest-style .category-block .wiki-list-collection li, body #page-wrapper #main-content #content-container #content #item-body .responsive-wiki .pinterest-style .category-block .wiki-list-collection li {
+      margin: 0 0 0 15px !important; }
+
+/*# sourceMappingURL=style.css.map */

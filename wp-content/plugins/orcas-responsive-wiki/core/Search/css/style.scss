@@ -1,0 +1,85 @@
+.filter-row {
+  position: relative;
+}
+
+.search-container {
+  margin: 5px 13px;
+  position: relative;
+  z-index: 500;
+  height: 51px;
+
+  #wiki-search {
+    height: 51px;
+    width: 100%;
+  }
+
+  #label-filter-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 51px;
+    width: 51px;
+    text-align: center;
+    line-height: 51px;
+    bottom: 0;
+    padding: 0 0 0 7px;
+    font-size: 20px;
+    color: #cdcdcd;
+    border-left: 1px solid #CDCDCD;
+    cursor: pointer;
+  }
+
+  #label-filter-icon:hover {
+    color: #777;
+  }
+
+  .search-filter-box {
+    position: absolute;
+    border: 1px solid #CDCDCD;
+    padding: 5px;
+    right: -5px;
+    top: 45px;
+    background: #fff;
+    width: 200px;
+    box-shadow: 0 4px 2px -3px;
+    border-radius: 5px;
+  }
+
+  #search-filter-trigger {
+    + .search-filter-box {
+      display: none;
+    }
+  }
+
+  #search-filter-trigger:checked {
+    + .search-filter-box {
+      display: block;
+    }
+  }
+}
+
+#wiki-search-result-box {
+  display: none;
+  position: absolute;
+  top: 132px;
+  left: 15px;
+  right: 15px;
+  bottom: 0;
+  background: #fff;
+
+  .search-result-header {
+    padding: 0 0 0 30px;
+  }
+
+  .wiki-entries {
+    cursor: pointer;
+    color: #777;
+    list-style-type: none;
+    display: inline-block;
+    width: 300px;
+  }
+
+  .wiki-entries:hover {
+    color: #000;
+  }
+}

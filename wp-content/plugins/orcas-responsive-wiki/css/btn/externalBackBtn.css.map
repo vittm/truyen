@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,kCAAkB;EAChB,OAAO,EAAE,IAAI;;AAIjB,qBAAsB;EACpB,OAAO,EAAE,IAAI",
+"sources": ["externalBackBtn.scss"],
+"names": [],
+"file": "externalBackBtn.css"
+}

@@ -1,0 +1,59 @@
+$borderColor: #cdcdcd;
+$backgroundOdd: #f5f5f5;
+$backgroundEven: #fff;
+$backgroundEsySelection: #f0ffff;
+$backgroundGradientEsySelection: linear-gradient(to bottom, #f7fbfc 0%,#d9edf2 40%,#add9e4 100%);
+$backgroundSelection: #e1e1e1;
+$backgroundGradientSelection: linear-gradient(to bottom, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%);
+
+.has-piece-complete {
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+
+  + .piece-complete {
+    position: absolute;
+    min-width: 150px;
+    max-height: 200px;
+    overflow: auto;
+    border-top: 1px solid #cdcdcd;
+    border-bottom: 1px solid #cdcdcd;
+
+    > .piece-list {
+      border: 1px solid $borderColor;
+      border-bottom: 0;
+      border-top: 0;
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style-type: none;
+        padding: 2px 0 2px 5px;
+        border-bottom: 1px solid $borderColor;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      li:last-child {
+        border-bottom: 0 !important;
+      }
+
+      li:nth-child(odd) {
+        background: $backgroundOdd;
+      }
+
+      li:nth-child(even) {
+        background: $backgroundEven;
+      }
+
+      li.piece-fast-selection {
+        background: $backgroundEsySelection;
+        background: $backgroundGradientEsySelection;
+      }
+
+      li.piece-selection {
+        font-weight: bold;
+        background: $backgroundSelection;
+        background: $backgroundGradientSelection;
+      }
+    }
+  }
+}

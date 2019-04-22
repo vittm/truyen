@@ -1,0 +1,64 @@
+#dialog-new-category, #category-selection-container {
+  display: none; }
+
+#category-selection-drop-down:checked + #category-selection-container {
+  display: block;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #cdcdcd;
+  right: 5px;
+  left: 100px;
+  top: 30px;
+  border-radius: 5px;
+  box-shadow: 0 4px 2px -3px; }
+
+.new-sub-category {
+  font-size: 10px;
+  cursor: pointer; }
+
+.category-selection li:nth-child(2) .new-sub-category {
+  display: none !important; }
+
+#wiki-category .data-box-container ul.category-selection li .category-radio + label {
+  cursor: pointer;
+  margin: 0 0 0 30px !important; }
+
+#dialog-new-category {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #cdcdcd;
+  right: 5px;
+  left: 100px;
+  top: 30px;
+  width: calc(100% - 120px) !important;
+  border-radius: 5px;
+  padding: 10px !important;
+  box-shadow: 0 4px 2px -3px; }
+
+#drop-down-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  cursor: pointer; }
+
+#drop-down-icon:after {
+  content: " ";
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #cdcdcd; }
+
+.input-selection {
+  height: 20px; }
+
+.category-container {
+  z-index: 1000; }
+
+/*# sourceMappingURL=form.css.map */

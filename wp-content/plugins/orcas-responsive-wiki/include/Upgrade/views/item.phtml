@@ -1,0 +1,154 @@
+<div class="orcas-plugin-item">
+    <div class="inner">
+    <div class="orcas-plugin-item-image">
+        <img width="150" height="150" src="<?php echo $item['image']; ?>" />
+    </div>
+    <div class="orcas-plugin-item-details">
+        <div class="orcas-plugin-item-name">
+            <?php echo $item['name']; ?>
+            <span class="shop-item-type"><?php echo $item['is_extension'] == 1 ? __('Extension', 'orcas-upgrade') : __('Plugin', 'orcas-upgrade'); ?></span>
+            <div class="button-box">
+            <?php
+            $needRequire = \de\orcas\extension\ShopItems::checkIsInstalled($item['require']);
+            echo
+            file_exists(\de\orcas\extension\UpdateService::getPluginDir() . DIRECTORY_SEPARATOR . "$item[slug]" . DIRECTORY_SEPARATOR . "$item[slug].php") &&
+            $item['free'] == 1 &&
+            !\de\orcas\extension\UpdateService::isInstalled($item['slug'])
+                ? \de\orcas\extension\ShopItems::addButton('install', $item['slug'], __('Activate', 'orcas-upgrade')) : '';?>
+
+            <?php echo
+            !file_exists(\de\orcas\extension\UpdateService::getPluginDir() . DIRECTORY_SEPARATOR . "$item[slug]" . DIRECTORY_SEPARATOR . "$item[slug].php") &&
+            $item['free'] == 1 &&
+            !\de\orcas\extension\UpdateService::isInstalled($item['slug']) ?
+                \de\orcas\extension\ShopItems::addButton('download', $item['slug'], __('Install', 'orcas-upgrade')) : ''; ?>
+
+            <?php
+                echo $item['free'] != 1 &&
+                $item['is_extension'] != 1 &&
+                \de\orcas\extension\UpdateService::isInstalled($item['slug']) &&
+                !\de\orcas\extension\UpdateService::isProInstalled($item['slug']) &&
+                isset($item['ugradable']) && $item['ugradable'] ?
+                    \de\orcas\extension\ShopItems::addButton('upgrade', $item['slug'], __('Upgrade', 'orcas-upgrade'), array('extensions' => $item['extensions'])) : ''; ?>
+
+            <?php echo
+            $item['free'] != 1 &&
+            !\de\orcas\extension\UpdateService::isProInstalled($item['slug']) &&
+            ((isset($item['ugradable']) && !$item['ugradable']) || !isset($item['ugradable'])) ?
+                "<a target='_blank' href='$item[product]' >" . __('Buy', 'orcas-upgrade') . "</a>" : '' ?>
+
+
+            <?php echo
+            !file_exists(\de\orcas\extension\UpdateService::getPluginDir() . DIRECTORY_SEPARATOR . "$item[slug]" . DIRECTORY_SEPARATOR . "$item[slug].php") &&
+            $item['free'] != 1 &&
+            $needRequire == false &&
+            $item['is_extension'] != 1 &&
+            !\de\orcas\extension\UpdateService::isInstalled($item['slug']) &&
+            isset($item['ugradable']) && $item['ugradable']
+                ? \de\orcas\extension\ShopItems::addButton('pro-download', $item['slug'], __('Install', 'orcas-upgrade')) : ''; ?>
+
+            <?php echo
+            //installer for extensions
+            $item['is_extension'] == 1 &&
+            $needRequire == false &&
+            !\de\orcas\extension\UpdateService::extensionInstalled($item['slug'], $item['extensions']) &&
+            (\de\orcas\extension\UpdateService::isInstalled($item['slug']) ||
+                \de\orcas\extension\UpdateService::isProInstalled($item['slug']) )
+                ? \de\orcas\extension\ShopItems::addButton('activate-extension', $item['slug'], __('Activate', 'orcas-upgrade')) : ''; ?>
+
+            <?php echo
+                //uninstall for extensions
+            $item['is_extension'] == 1 &&
+            \de\orcas\extension\UpdateService::extensionInstalled($item['slug'], $item['extensions']) &&
+            (\de\orcas\extension\UpdateService::isInstalled($item['slug']) ||
+                \de\orcas\extension\UpdateService::isProInstalled($item['slug']) )
+                ? \de\orcas\extension\ShopItems::addButton('deactivate-extension', $item['slug'], __('Deactivate', 'orcas-upgrade'), array('extensions' => $item['extensions'])) : ''; ?>
+
+            <?php echo
+                file_exists(\de\orcas\extension\UpdateService::getPluginDir() . DIRECTORY_SEPARATOR . "$item[slug]" . DIRECTORY_SEPARATOR . "$item[slug].php") &&
+                $item['free'] != 1 &&
+                $needRequire == false &&
+                $item['is_extension'] != 1 &&
+                !\de\orcas\extension\UpdateService::isInstalled($item['slug']) &&
+                isset($item['ugradable']) && $item['ugradable']
+                    ? \de\orcas\extension\ShopItems::addButton('pro-install', $item['slug'], __('Activate', 'orcas-upgrade')) : ''; ?>
+
+
+            <?php echo
+            file_exists(\de\orcas\extension\UpdateService::getPluginDir() . DIRECTORY_SEPARATOR . "$item[slug]" . DIRECTORY_SEPARATOR . "$item[slug].php") &&
+            $item['free'] != 1 &&
+            $item['is_extension'] != 1 &&
+            \de\orcas\extension\UpdateService::isProInstalled($item['slug']) &&
+            //\de\orcas\extension\UpdateService::isInstalled($item['slug']) &&
+                isset($item['ugradable']) && $item['ugradable']
+                ? \de\orcas\extension\ShopItems::addButton('downgrade', $item['slug'], __('Downgrade', 'orcas-upgrade'), array('extensions' => $item['extensions'])) : '';?>
+
+            <?php echo
+            file_exists(\de\orcas\extension\UpdateService::getPluginDir() . DIRECTORY_SEPARATOR . "$item[slug]" . DIRECTORY_SEPARATOR . "$item[slug].php") &&
+            $item['free'] != 1 &&
+            $item['is_extension'] != 1 &&
+            $needRequire == false &&
+            //!\de\orcas\extension\UpdateService::isProInstalled($item['slug']) &&
+            !\de\orcas\extension\UpdateService::isInstalled($item['slug'])
+            && ((isset($item['ugradable']) && $item['ugradable']))
+                ? \de\orcas\extension\ShopItems::addButton('uninstall', $item['slug'], __('Uninstall', 'orcas-upgrade')) : '';?>
+
+            <?php echo
+            file_exists(\de\orcas\extension\UpdateService::getPluginDir() . DIRECTORY_SEPARATOR . "$item[slug]" . DIRECTORY_SEPARATOR . "$item[slug].php") &&
+            $item['free'] == 1 &&
+            !\de\orcas\extension\UpdateService::isProInstalled($item['slug']) &&
+            !\de\orcas\extension\UpdateService::isInstalled($item['slug'])
+                ? \de\orcas\extension\ShopItems::addButton('uninstall', $item['slug'], __('Uninstall', 'orcas-upgrade')) : '';?>
+
+            <?php echo
+            $item['free'] == 1 &&
+            !\de\orcas\extension\UpdateService::isProInstalled($item['slug']) &&
+            \de\orcas\extension\UpdateService::isInstalled($item['slug'])
+                ? \de\orcas\extension\ShopItems::addButton('deactivate', $item['slug'], __('Deactivate', 'orcas-upgrade')) : '';?>
+
+            <?php echo
+            $item['free'] != 1 &&
+            $item['is_extension'] != 1 &&
+            \de\orcas\extension\UpdateService::isProInstalled($item['slug']) &&
+            \de\orcas\extension\UpdateService::isInstalled($item['slug'])
+                ? \de\orcas\extension\ShopItems::addButton('deactivate', $item['slug'], __('Deactivate', 'orcas-upgrade'), array('extensions' => $item['extensions'])) : '';?>
+
+            <?php echo
+            $item['free'] == 1 &&
+            \de\orcas\extension\UpdateService::isProInstalled($item['slug']) &&
+            \de\orcas\extension\UpdateService::isInstalled($item['slug'])
+                ? '<span class="pro-notice">' . __('Pro edition is installed', 'orcas-upgrade') . '</span>' : '';?>
+
+            <?php
+            echo
+            $needRequire != false
+                ? '<span class="pro-notice">' . __('Require', 'orcas-upgrade') . '<br />' . $needRequire . '</span>' : '';?>
+            </div>
+
+        </div>
+        <div class="orcas-plugin-item-details-content">
+            <?php echo $item['short_description']; ?>
+        </div>
+        <div class="orcas-plugin-item-links">
+           <!-- <a href="/"><?php echo __('Details', 'orcas-upgrade'); ?></a>
+            <a href="/"><?php echo __('Settings', 'orcas-upgrade'); ?></a>-->
+        </div>
+        <div class="orcas-plugin-item-compatibel">
+            <span> <?php echo __('Compatibel', 'orcas-upgrade'); ?></span>
+            <?php echo __('with your WordPress version', 'orcas-upgrade'); ?>
+        </div>
+
+        <?php
+            if($item['free'] != 1 && $item['is_extension'] != 1 && \de\orcas\extension\UpdateService::comparePluginVersion($item['slug'], $item['version'])) {?>
+                <div class="update-message notice inline notice-warning notice-alt new-version-available">
+                    <p>
+                        <?php echo
+                            str_replace("%s", $item['version'], __("Version %s is now available.", 'orcas-upgrade'));
+                        ?>
+                    </p>
+                    <?php echo \de\orcas\extension\ShopItems::addButton('upgrade', $item['slug'], __('Update', 'orcas-upgrade'), array('extensions' => $item['extensions']));; ?>
+                </div>
+            <?php }
+        ?>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<?php
+    if(count($this->fields) > 0) {
+        foreach($this->fields as $field) {
+            if(isset($field['show']) && $field['show'] && isset($field['location']) && $field['location'] == 'block') {
+                $value = isset($result[$field['name']]) ? $result[$field['name']] : '';
+                $label = strlen($value) > 0 && isset($field['label']) && isset($field['showLabel']) && $field['showLabel'] ? "<div class='wiki-page-sub-headline'>" . esc_html($field['label']) . "</div>" : '';
+                echo '<div class="wiki-content">';
+                echo "$label";
+                echo $this->deesc($value);
+                echo '</div>';
+            }
+        }
+    }
+?>

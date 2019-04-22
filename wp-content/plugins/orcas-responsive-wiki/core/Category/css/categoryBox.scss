@@ -1,0 +1,114 @@
+.sub-cat-list {
+  position: absolute;
+  z-index: 10;
+  top: 176px;
+  left:0;
+  right:0;
+  bottom:0;
+  background: #fff;
+  display: none;
+
+  .sub-cat-list {
+    top: 0 !important;
+
+    .wiki-list-collection {
+      text-align: left;
+      padding: 5px 45px 0 45px !important;
+
+      li {
+        width: 200px;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.wiki-list-collection {
+  text-align: left;
+  padding: 5px 45px 0 45px !important;
+}
+
+.category-box {
+  position: relative;
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 20px;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  margin: 3px 6px;
+  vertical-align: top;
+
+  .category-item-count {
+    height: 30px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+  }
+
+  .category-icon {
+    font-size: 50px;
+    text-align: center;
+    height: 80px;
+  }
+}
+
+.category-box:hover {
+  border: 1px solid #000;
+}
+
+.pinterest-style {
+  width: 200px;
+  padding: 20px;
+  column-width: initial !important;
+  text-align: center;
+}
+
+#category-bread-crumb {
+  position: absolute;
+  z-index: 15;
+  margin: 0 13px;
+  ul {
+    display: none;
+
+    padding:0;
+    li {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      color: #adadad;
+      list-style-type: none;
+      margin: 0 0 0 10px !important;
+      padding: 0 0 0 10px;
+    }
+
+    li:hover {
+      color: #000;
+    }
+
+    li:before {
+      content: "/";
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #777;
+    }
+
+    li:first-child {
+      margin: 0 !important;
+      padding: 0;
+    }
+
+    li:first-child:before {
+      display: none !important;
+    }
+
+    li:last-child {
+      cursor: default;
+      color: #adadad !important;
+    }
+  }
+}
