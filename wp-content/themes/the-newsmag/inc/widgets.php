@@ -266,16 +266,24 @@ class The_NewsMag_Posts_Category_Tab extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php esc_html_e( 'Select the category:', 'the-newsmag' ); ?>
 				<?php
-				$args = wp_dropdown_categories( array(
-					'show_option_none' => ' ',
-					'name'             => $this->get_field_name( 'category' ),
-					'selected'         => $category,
-					'multiple'          => true
-				) );
+				$arg= array(
+					'descendants_and_self'  => 0,
+					'selected_cats'         => false,
+					'popular_cats'          => false,
+					'walker'                => null,
+					'taxonomy'              => 'category',
+					'checked_ontop'         => true,
+					'echo'                  => true
+				);
+				$dropdown = wp_terms_checklist($this->get_field_id( 'category' ),$arg);
 				?>
 			</label>
 		</p>
 		<?php
+	}
+	function update( $new_instance, $old_instance ) {
+		$instance['category'] = absint( $new_instance['category'] );
+		return $instance;
 	}
 }
 class The_NewsMag_Posts_Slider_Widget extends WP_Widget {
