@@ -16,7 +16,7 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 </head>
 
 <body <?php body_class(); ?>>
@@ -24,8 +24,14 @@
 <div id="page" class="site">
 	<?php do_action( 'the_newsmag_before_header' ); ?>
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'the-newsmag' ); ?></a>
-
 	<header id="masthead" class="site-header" role="banner">
+		<div class="inner-wrap">
+			<?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) { ?>
+				<div class="header-custom-logo">
+					<?php the_custom_logo(); ?>
+				</div>
+			<?php } ?>
+		</div>
 		<!-- .site-branding -->
 		<nav id="site-navigation" class="main-navigation clear" role="navigation">
 			<div class="inner-wrap">
@@ -118,11 +124,6 @@
 		<div class="site-branding clear">
 			<div class="inner-wrap">
 				<div class="header-left-section">
-					<?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) { ?>
-						<div class="header-custom-logo">
-							<?php the_custom_logo(); ?>
-						</div>
-					<?php } ?>
 
 					<div class="site-info">
 						<?php if ( is_front_page() && is_home() ) : ?>

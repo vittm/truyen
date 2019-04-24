@@ -24,7 +24,7 @@
 	# Normalize
 	--------------------------------------------------------------*/
 	html {
-		font-family: 'Roboto', sans-serif !important;
+		font-family: 'Rocoi', sans-serif !important;
 		-webkit-text-size-adjust: 100%;
 		-ms-text-size-adjust:     100%;
 	}
@@ -68,7 +68,6 @@
 
 	a {
 		background-color: transparent;
-		font-family: 'Roboto', sans-serif !important;
 	}
 
 	a:active,
@@ -669,7 +668,7 @@
 		color: #fff;
 		padding: 10px 20px;
 		font-size: 20px;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.small-info-text,
@@ -681,7 +680,7 @@
 		padding: 10px 20px;
 		float: left;
 		font-size: 20px;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.the-newsmag-header-image {
@@ -799,19 +798,23 @@
 	# Site Branding CSS
 	--------------------------------------------------------------*/
 
-	.site-branding .header-custom-logo {
+	.header-custom-logo {
 		max-width: 100%;
 		float: left;
 		margin-right: 20px;
+		background: transparent;
+		margin: 20px 0;
 	}
-
+	.header-custom-logo .custom-logo {
+		width: 230px;
+	}
 	header .site-info {
 		float: left;
 	}
 
 	.site-title,
 	.site-description {
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.site-title {
@@ -906,7 +909,7 @@
 		color: #222;
 		max-width: 60%;
 		float: left;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.footer-copyright a {
@@ -927,7 +930,7 @@
 		padding: 10px;
 		font-size: 20px;
 		color: #222;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	#footer-menu a:hover {
@@ -999,7 +1002,7 @@
 	select,
 	textarea {
 		color: #222;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 		font-size: 18px;
 		line-height: 1.6;
 	}
@@ -1011,7 +1014,7 @@
 	h5,
 	h6 {
 		clear: both;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 		margin: 24px 0;
 	}
 
@@ -1042,7 +1045,7 @@
 	p {
 		margin-bottom: 20px;
 		font-size: 18px;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	dfn,
@@ -1192,10 +1195,6 @@
 	*:before,
 	*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 		box-sizing: inherit;
-	}
-
-	body {
-		background: #ccc; /* Fallback for when there is no custom background color defined. */
 	}
 
 	blockquote:before,
@@ -1385,7 +1384,22 @@
 	a:active {
 		outline: 0;
 	}
-
+	/* Font */
+	@font-face {
+		font-family: 'Rocoi';
+		src: local('Rocoi UI'), url('./font/Rocoi-\ Linotte\ Regular.ttf') format('truetype');
+		font-weight: normal;
+		font-style: normal;
+		unicode-range: U+00-FF;
+	}
+	
+	@font-face {
+		font-family: 'Rocoi';
+		src: local('Rocoi UI'), url('./font/Rocoi- Linotte Bold.ttf') format('truetype');
+		font-weight: 500;
+		font-style: normal;
+		unicode-range: U+00-FF;
+	}
 	/*--------------------------------------------------------------
 	## Menus
 	--------------------------------------------------------------*/
@@ -1415,10 +1429,10 @@
 		display: block;
 		text-decoration: none;
 		padding: 7px 14px;
-		font-size: 16px!important;
+		font-size: 19px;
 		color: #fff;
 		background-color: #2684ff;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.main-navigation a:hover {
@@ -1508,7 +1522,7 @@
 		background: #4169e1;
 	}
 
-	#site-navigation,.sticky-wrapper {
+	#site-navigation {
 		position: relative;
 		border: 1px solid #2684ff;
 		background: #2684ff;
@@ -1559,7 +1573,7 @@
 		color: #fff;
 		font-size: 18px;
 		text-shadow: none;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.menu-toggle:hover {
@@ -1756,7 +1770,7 @@
 	}
 
 	.post-navigation {
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 		font-weight: bold;
 		border-top: 4px solid #4169e1;
 		border-bottom: 4px solid #4169e1;
@@ -1924,7 +1938,7 @@
 	}
 
 	.widget-title {
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 		font-size: 24px;
 		border-bottom: 4px solid #4169e1;
 		color: #fff;
@@ -2225,7 +2239,7 @@
 		flex-wrap: wrap;
 	}
 	.widget .single-article-content__group {
-		margin: 40px 10px 0 10px;
+		margin: 40px 10px 0 0;
 	}
 	.widget .the-newsmag-category-slider .single-article-content .featured-image {
 		margin-bottom: 15px;
@@ -2243,6 +2257,7 @@
 		-webkit-box-orient: vertical;
 		word-break: break-all;
 		color: #000;
+		font-size: 14px;
 	}
 	.widget-entry-meta .entry-meta .byline,
 	.widget-entry-meta .entry-meta .posted-on,
@@ -2941,7 +2956,7 @@
 
 	.entry-title, .entry-meta,
 	.entry-footer, .entry-content {
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.entry-title {
@@ -3301,7 +3316,7 @@
 
 	.related-posts-main-title {
 		border-bottom: 4px solid #4169e1;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.related-posts.columns {
@@ -3691,7 +3706,7 @@
 		border-top: 2px solid #4169e1;
 		border-bottom: 2px solid #4169e1;
 		text-align: center;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.nav-links .page-numbers.current {
@@ -3763,16 +3778,16 @@
 
 	.comment-reply-title {
 		font-size: 30px;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.comments-title {
 		font-size: 30px;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.comment-metadata, .comment-author {
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 	}
 
 	.comments-area > ol {
@@ -3932,7 +3947,7 @@
 		color: #fff;
 		font-size: 24px;
 		border-radius: 5px;
-		font-family: "Noto Sans", sans-serif;
+		font-family: "Montserrat", sans-serif;
 		padding: 12px 0;
 	}
 
@@ -4148,6 +4163,7 @@
 		position: relative;
 		text-align: center;
 		font-size: 18px!important;
+		font-family: "Rocoi", sans-serif;
 	}
 	.poll-header:before{
 		position: absolute;
@@ -4179,6 +4195,7 @@
 		color: #ff5630;
 		text-align: center;
 		margin: 0;
+		font-family: "Rocoi", sans-serif;
 	}
 
 
@@ -4188,7 +4205,7 @@
 		position: absolute;
 		content: "";
 		border-bottom: 3px solid #247df2;
-		top: 40px;
+		top: 42px;
 	}
 	.the-newsmag-posts-slider-widget {
 		position: relative;
@@ -4197,5 +4214,8 @@
 		background:#247df2;
 		margin-bottom: 0;
 		border-top-left-radius: 10px;
-		border-top-right-radius: 10px;	
+		border-top-right-radius: 10px;
+		font-family: "Rocoi", sans-serif;
+		font-size: 22px;
+		font-weight: 500;
 	}

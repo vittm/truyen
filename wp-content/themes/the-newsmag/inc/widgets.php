@@ -263,22 +263,7 @@ class The_NewsMag_Posts_Category_Tab extends WP_Widget {
 	function form($instance) {
 		$category = ! empty( $instance['category'] ) ? $instance['category'] : '';
 		?>
-		<p>
-			<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php esc_html_e( 'Select the category:', 'the-newsmag' ); ?>
-				<?php
-				$arg= array(
-					'descendants_and_self'  => 0,
-					'selected_cats'         => false,
-					'popular_cats'          => false,
-					'walker'                => null,
-					'taxonomy'              => 'category',
-					'checked_ontop'         => true,
-					'echo'                  => true
-				);
-				$dropdown = wp_terms_checklist($this->get_field_id( 'category' ),$arg);
-				?>
-			</label>
-		</p>
+		
 		<?php
 	}
 	function update( $new_instance, $old_instance ) {
@@ -411,7 +396,7 @@ class The_NewsMag_Posts_Slider_Widget extends WP_Widget {
 			
 			<div class="single-article-content">
 				<?php foreach( $chunk as $key => $post ){ ?>
-					<div class="single-article-content__group" style="margin-top: 40px;flex-basis:<?php if($showItem > 3){echo 100/($showItem/2) - 4; }else {echo (100/$showItem) ;}?>%">
+					<div class="single-article-content__group" style="margin-top: 40px;flex-basis:<?php if($showItem > 3){echo 100/($showItem/2) - 1.5; }else {echo (100/$showItem) ;}?>%">
 					<figure class="featured-image">
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							<?php the_post_thumbnail( 'the-newsmag-featured-large-thumbnail' ); ?>
