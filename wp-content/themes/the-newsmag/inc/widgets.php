@@ -261,14 +261,115 @@ class The_NewsMag_Posts_Category_Tab extends WP_Widget {
 		);
 	}
 	function form($instance) {
-		$category = ! empty( $instance['category'] ) ? $instance['category'] : '';
+		$title = isset($instance[ 'title' ]) ? $instance[ 'title' ] : 'Categories';
+		$instance['category'] = !empty($instance['category']) ? explode(",",$instance['category']) : array();
 		?>
-		
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>">Title</label>
+			<input type="text" class="widfat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" style="width: 100%;" value="<?php echo $title; ?>"/>
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php _e( 'Select Categories you want to show:' ); ?></label><br />
+			<?php $args = array(
+					'post_type' => 'post',
+					'taxonomy' => 'category',
+				);
+				$terms = get_terms( $args );
+			//print_r($terms);
+			foreach( $terms as $id => $name ) { 
+				$checked = "";
+				if(in_array($name->name,$instance['category'])){
+					$checked = "checked='checked'";
+				}
+			?>
+				<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('category'); ?>" name="<?php echo $this->get_field_name('category[]'); ?>" value="<?php echo $name->name; ?>"  <?php echo $checked; ?>/>
+				<label for="<?php echo $this->get_field_id('category'); ?>"><?php echo $name->name; ?></label><br />
+			<?php } ?>
+		</p>
+
 		<?php
 	}
 	function update( $new_instance, $old_instance ) {
-		$instance['category'] = absint( $new_instance['category'] );
+		$instance = $old_instance;
+		$instance[ 'title' ] = strip_tags( $new_instance[ 'title' ] );
+		$instance['category'] = !empty($new_instance['category']) ? implode(",",$new_instance['category']) : 0;
 		return $instance;
+	}
+	function widget( $args, $instance ) {
+		extract( $args );
+
+		$title = apply_filters( 'widget_title', $instance[ 'title' ] );
+		$postCats = $instance[ 'category' ];
+		$categories_list = explode(",", $postCats);
+
+		echo $before_widget;
+
+		$args = array('post_type' => 'post','taxonomy' => 'category',);
+		$terms = get_terms( $args );
+		?>
+		<div class="the-newsmag-posts-slider-widget ">
+				<div class="category-links">
+					<a> <?php echo $title; ?></a>
+				</div><!-- .entry-meta -->
+				<ul class="tabs" role="tablist">
+					<?php 
+						foreach ($categories_list as $cat) {
+							foreach($terms as $key => $term) {
+								if($cat === $term->name) {
+					?>
+					<li>
+						<input type="radio" name="tabs" id="tab<?php echo $key; ?>" checked />
+						<label for="tab<?php echo $key; ?>" 
+							role="tab" 
+							aria-selected="true" 
+							aria-controls="panel<?php echo $key; ?>" 
+							tabindex="0"><?php echo $term->name; ?></label>
+						<div id="tab-content<?php echo $key; ?>" 
+							class="tab-content" 
+							role="tabpanel" 
+							aria-labelledby="description" 
+							aria-hidden="false">
+							<?php
+								global $post;
+								$get_recent_posts = new WP_Query( array(
+									'meta_key' => 'the_newsmag_show_select',
+									'meta_value' => 'select_home',
+									'posts_per_page'      => '1',
+									'post_type'           => 'post',
+									'ignore_sticky_posts' => true,
+									'category__in'        => $term,
+									'no_found_rows'       => true,
+								) );
+								?>
+								<?php
+								while ( $get_recent_posts->have_posts() ) : $get_recent_posts->the_post();
+									?>
+									<div class="single-article-content clear">
+										<?php if ( has_post_thumbnail() ) { ?>
+											<figure class="featured-image">
+												<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'the-newsmag-featured-small-thumbnail' ); ?></a>
+											</figure>
+										<?php } ?>
+										<h3 class="entry-title">
+											<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+										</h3>
+										<div class="entry-meta">
+											<?php the_newsmag_widget_posts_posted_on(); ?>
+										</div>
+									</div>
+								<?php
+								endwhile;
+								?>
+						</div>
+					</li>
+					<?php } } } ?>
+				</ul>
+			</div>
+		<?php
+		
+		echo $after_widget;
 	}
 }
 class The_NewsMag_Posts_Slider_Widget extends WP_Widget {
