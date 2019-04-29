@@ -1044,7 +1044,7 @@
 
 	p {
 		margin-bottom: 20px;
-		font-size: 18px;
+		font-size: 15px;
 		font-family: "Montserrat", sans-serif;
 	}
 
@@ -1429,7 +1429,7 @@
 		display: block;
 		text-decoration: none;
 		padding: 7px 14px;
-		font-size: 19px;
+		font-size: 16px;
 		color: #fff;
 		background-color: #2684ff;
 		font-family: "Montserrat", sans-serif;
@@ -4317,4 +4317,25 @@
 	  }
 	  .site-footer {
 		  display: none;
-	  }
+		}
+		/* Review Home */
+
+		.review-box__right > a > img {
+			width: 100%;
+		}
+
+		/* Category */
+		.review-box__right > a {
+			position: relative;
+			display: block;
+		}
+		.nameCategoryPost {
+			padding: 10px 20px;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+		.nameCategoryPost__title {
+			color: #ffffff;
+			margin: 0;
+		}

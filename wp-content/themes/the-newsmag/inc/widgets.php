@@ -332,8 +332,9 @@ class The_NewsMag_Posts_Category_Tab extends WP_Widget {
 							aria-labelledby="description" 
 							aria-hidden="false">
 							<?php
-								global $post;
-								$get_recent_posts = new WP_Query( array(
+								global $postReview;
+								$argsStt =  array( 'ID' => 'DESC' );
+								$get_recent_posts = get_posts( array(
 									'meta_key' => 'the_newsmag_show_select',
 									'meta_value' => 'select_home',
 									'posts_per_page'      => '1',
@@ -341,26 +342,61 @@ class The_NewsMag_Posts_Category_Tab extends WP_Widget {
 									'ignore_sticky_posts' => true,
 									'category__in'        => $term,
 									'no_found_rows'       => true,
+									'orderby' => $argsStt,
 								) );
 								?>
+								
 								<?php
-								while ( $get_recent_posts->have_posts() ) : $get_recent_posts->the_post();
+								foreach ( $get_recent_posts	 as $postReview ) {
+									setup_postdata( $postReview );
+									if(($postReview->hcf_show_review) === on ){
 									?>
-									<div class="single-article-content clear">
-										<?php if ( has_post_thumbnail() ) { ?>
-											<figure class="featured-image">
-												<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'the-newsmag-featured-small-thumbnail' ); ?></a>
-											</figure>
-										<?php } ?>
-										<h3 class="entry-title">
-											<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-										</h3>
-										<div class="entry-meta">
-											<?php the_newsmag_widget_posts_posted_on(); ?>
+									<div class="hcf_box review-box">
+										<style scoped>
+											.hcf_box{
+												display: grid;
+												grid-template-columns: 40% 60%;
+												grid-row-gap: 10px;
+												grid-column-gap: 20px;
+											}
+											.hcf_field{
+												display: contents;
+											}
+										</style>
+										<div class="meta-options hcf_field">
+												<div class="review-box__left">
+													<div class="reivew-box__point">
+
+													</div>
+													<a href="<?php the_permalink($postReview->ID); ?>" title="<?php the_title_attribute($postReview->ID); ?>">
+													<?php echo $postReview->post_title;?></a>
+													<p>Tên tác giả : <strong> <?php echo esc_attr( get_post_meta( $postReview->ID, 'hcf_author', true ) );?></strong></p>
+													<p> Thể Loại: <strong><?php echo $term->name; ?></strong> </p>
+													<p> Năm: <strong><?php echo esc_attr( get_post_meta( $postReview->ID, 'hcf_year', true ) );?></strong> </p>
+													<p> Số tập: <strong><?php echo esc_attr( get_post_meta( $postReview->ID, 'hcf_chap', true ) );?></strong><p>
+													<p class="reivew-box__content">
+														<?php echo esc_attr( get_post_meta( $postReview->ID, 'hcf_summary', true ) );?>
+													</p>
+													<a href="">xem chi tiết</a>
+												</div>
+												<div class="review-box__right">
+													<a href="<?php the_permalink($postReview->ID); ?>" title="<?php the_title_attribute($postReview->ID); ?>">
+														<img src="<?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($postReview->ID) ); echo $feat_image;?>" />
+														<div class="nameCategoryPost" style="background:<?php echo the_newsmag_category_color($term->term_id) ?>">
+															<p class="nameCategoryPost__title">
+																<?php 
+																	echo $term->name;
+																?>
+															</p>
+														</div>
+													</a>
+												</div>
 										</div>
 									</div>
 								<?php
-								endwhile;
+								}
+								}
+								wp_reset_postdata();
 								?>
 						</div>
 					</li>

@@ -76,6 +76,13 @@ if (!function_exists('the_newsmag_save_custom_meta_create_review')) :
                     value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'hcf_publishing', true ) ); ?>">
             </p>
             <p class="meta-options hcf_field">
+                <label for="hcf_year">Năm xuất bản</label>
+                <input id="hcf_year"
+                    type="text"
+                    name="hcf_year"
+                    value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'hcf_year', true ) ); ?>">
+            </p>
+            <p class="meta-options hcf_field">
                 <label for="hcf_status">Tình Trạng</label>
                 <input id="hcf_status"
                     type="text"
@@ -143,11 +150,11 @@ if (!function_exists('the_newsmag_save_custom_meta_create_review')) :
                 ?>
             </div>
             <p class="meta-options hcf_field">
-                <label for="hcf_author">Bạn đọc bình chọn</label>
-                <input id="hcf_author"
+                <label for="hcf_vote">Bạn đọc bình chọn</label>
+                <input id="hcf_vote"
                     type="text"
-                    name="hcf_author"
-                    value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'hcf_author', true ) ); ?>">
+                    name="hcf_vote"
+                    value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'hcf_vote', true ) ); ?>">
             </p>
             <div class="meta-options hcf_field">
                 <label for="hcf_add_point">ĐIỂM CỘNG</label>
@@ -205,13 +212,13 @@ if (!function_exists('the_newsmag_save_custom_meta_create_review')) :
             'hcf_status',
             'hcf_year_published',
             'hcf_chap',
-            'hcf_chap',
             'hcf_core',
             'hcf_figure',
             'hcf_paint',
             'hcf_quality',
             'hcf_point',
             'hcf_vote',
+            'hcf_year'
         ];
         $fieldEditor = [
             'hcf_summay',

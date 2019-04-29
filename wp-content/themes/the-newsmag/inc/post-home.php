@@ -11,9 +11,9 @@ add_action('add_meta_boxes', 'the_newsmag_custom_post_homes');
  */
 function the_newsmag_custom_post_homes() {
 	// Adding the layout meta box for single page
-	add_meta_box('page-layout-home', esc_html__('Show Home', 'the-newsmag'), 'the_newsmag_post_homes', 'page', 'side', 'default');
+	add_meta_box('page-layout-home1', esc_html__('Show Home', 'the-newsmag'), 'the_newsmag_post_homes', 'page', 'side', 'default');
 	// Adding the layout meta box for single post page
-	add_meta_box('page-layout-home', esc_html__('Show Home', 'the-newsmag'), 'the_newsmag_post_homes', 'post', 'side', 'default');
+	add_meta_box('page-layout-home1', esc_html__('Show Home', 'the-newsmag'), 'the_newsmag_post_homes', 'post', 'side', 'default');
 }
 
 /**
