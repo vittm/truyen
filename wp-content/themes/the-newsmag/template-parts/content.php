@@ -110,32 +110,35 @@
 			</div>
 			<div class="entry-header-review__point">
 				<?php
-					$core = sc_attr( get_post_meta( $postReview->ID, 'hcf_author', true ) );
-					$
+					$core = esc_attr( get_post_meta( $postReview->ID, 'hcf_author', true ) );
+					$figure = esc_attr( get_post_meta( $postReview->ID, 'hcf_figure', true ) );
+					$paint = esc_attr( get_post_meta( $postReview->ID, 'hcf_paint', true ) );
+					$quality = esc_attr( get_post_meta( $postReview->ID, 'hcf_quality', true ) );
+					$vote = esc_attr( get_post_meta( $postReview->ID, 'hcf_vote', true ) );
 				?>
 					<p>Cốt Truyện </p>
 					<div class="entry-header-review__point__detail">
 						<div class="review_pollbar">
 						</div>
-						<p>9</p>
+						<p><?php echo $core; ?></p>
 					</div>
 					<p>Nhân vật</p>
 					<div class="entry-header-review__point__detail">
 						<div class="review_pollbar">
 						</div>
-						<p>9</p>
+						<p><?php echo $figure; ?></p>
 					</div>
 					<p>Nét vẽ</p>
 					<div class="entry-header-review__point__detail">
 						<div class="review_pollbar">
 						</div>
-						<p>9</p>
+						<p><?php echo $paint; ?></p>
 					</div>
 					<p>Chất lượng</p>
 					<div class="entry-header-review__point__detail">
 						<div class="review_pollbar">
 						</div>
-						<p>9</p>
+						<p><?php echo $quality; ?></p>
 					</div>
 			</div>
 			<div class="entry-header-review__total">
@@ -146,22 +149,34 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 				<div class="entry-header-review__total__right">
 					<div class="reivew-box__point">
 						<p>
-							Khá ổn
+							<?php 
+								textReview($postReview->ID);
+							?>
 						</p>
 						<p>
-							8.5
+							<?php
+								$total = totalReview($postReview->ID);
+								echo $total;
+							?>
 						</p>
 						<fieldset class="rating">
-							<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-							<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-							<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-							<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-							<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-							<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-							<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-							<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-							<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-							<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+							<?php 
+								$totalConvert4 =  round(($total/2)*2) /2;
+								for ($i=5; $i > 0; $i--) {?>
+									<input <?php if( $totalConvert4 % 2 === 0 &&  $totalConvert4 == $i ){ echo "checked ";} ?>type="radio" id="star<?php echo $i; ?>" name="rating"/>
+									<label class = "full" for="star<?php echo $i; ?>" title="Awesome - <?php echo $i; ?> stars"></label>
+									<?php if ($i < 5){ 
+										?>
+										<input 
+											<?php if($totalConvert4 > $i &&  $totalConvert4 < ($i + 0.5)) echo "checked "; else ""; ?> 
+											type="radio" id="star<?php echo $i; ?>half" name="rating" value="<?php echo $i; ?> and a half" />
+										<label class="half" for="star<?php echo $i; ?>half" title="Meh - 1.5 stars"></label>
+									<?php
+									}
+									?>
+								<?php
+								}
+							?>
 						</fieldset>
 					</div>
 				</div>

@@ -406,7 +406,42 @@ function update_category( $term_id, $tt_id ){
 } 
 add_action( 'edited_category', 'update_category', 10, 2 );
 
-
+function totalReview($id_post) {
+	if($id_post !== null) {
+		global $totalReview;
+		$core = esc_attr( get_post_meta($id_post, 'hcf_core', true ) );
+		$figure = esc_attr( get_post_meta($id_post, 'hcf_figure', true ) );
+		$paint = esc_attr( get_post_meta($id_post, 'hcf_paint', true ) );
+		$quality = esc_attr( get_post_meta($id_post, 'hcf_quality', true ) );
+		$vote = esc_attr( get_post_meta($id_post, 'hcf_vote', true ) );
+		$totalReview = ($core + $figure + $quality + $paint + $vote)/5 ;
+		return $totalReview;
+	}
+}
+function textReview($id_post) {
+	if($id_post !== null) {
+		global $textReview;
+		$totalReviewFunc = totalReview($id_post);
+		switch($totalReviewFunc) {
+			case ($totalReviewFunc < 5):
+				echo 'Tệ';
+				break; 
+			case ($totalReviewFunc > 5 && $totalReviewFunc <= 6.5):
+				echo 'Bình Thường';
+				break;
+			case ($totalReviewFunc > 6.5 && $totalReviewFunc <= 7):
+				echo 'Khá Ổn';
+				break;
+			case ($totalReviewFunc > 7 && $totalReviewFunc <= 8):
+				echo 'Khá Hay';
+				break;
+			case ($totalReviewFunc > 8 && $totalReviewFunc <= 10):
+				echo 'Rất Hay';
+				break;
+		}
+	}
+}
+add_action( 'after_setup_theme', 'totalReview' );
 /**
  * Register widget area.
  *
