@@ -408,6 +408,7 @@ class The_NewsMag_Posts_Category_Tab extends WP_Widget {
 		echo $after_widget;
 	}
 }
+
 class The_NewsMag_Posts_Slider_Widget extends WP_Widget {
 
 	function __construct() {

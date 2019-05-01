@@ -7,12 +7,22 @@
  * @package The NewsMag
  */
 ?>
-
+<?php
+	$postReview = get_post(the_ID());
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="article-container clear">
-		<?php do_action('the_newsmag_before_post_content'); ?>
-
-		<div class="post-header-wrapper clear">
+		<?php do_action('the_newsmag_before_post_content'); 
+		if(($postReview->hcf_show_review) !== on ){
+		?>
+			<header class="page-header">
+				<?php
+				do_action('the_newsmag_category_title');
+				single_cat_title();
+				echo '<div class="taxonomy-description">' . category_description() . '</div>';
+				?>
+			</header><!-- .page-header -->
+			<div class="post-header-wrapper clear">
 			<?php if (has_post_thumbnail()) : ?>
 
 				<?php
@@ -66,6 +76,9 @@
 				?>
 			</header><!-- .entry-header -->
 		</div>
+		<?php
+		}
+		?>
 
 		<div class="entry-header-meta">
 			<?php
@@ -77,7 +90,91 @@
 			<?php endif;
 			?>
 		</div><!-- .entry-header-meta -->
-
+		<?php 
+			
+		?>
+		<div class="entry-header-review">
+			<div class="entry-header-review__content">
+				<div class="entry-header-review__content__left">
+					<h3>ĐÁNH GIÁ TÁC PHẨM</h3>
+						<p><strong>Tên tác phẩm</strong>: <?php the_title() ?></p>
+						<p><strong>Tác giả</strong>: <?php echo esc_attr( get_post_meta( $postReview->ID, 'hcf_author', true ) );?></p>
+						<p><strong>Thể loại</strong>: Relef</p>
+						<p><strong>Nhà xuất bản</strong>: Relef</p>
+						<p><strong>Tình trạng</strong>: Relef</p>
+						<p><strong>Số tập</strong>: Relef</p>
+				</div>
+				<div class="entry-header-review__content__right">
+					<?php the_post_thumbnail( 'the-newsmag-featured-large-thumbnail' ); ?>
+				</div>
+			</div>
+			<div class="entry-header-review__point">
+				<?php
+					$core = sc_attr( get_post_meta( $postReview->ID, 'hcf_author', true ) );
+					$
+				?>
+					<p>Cốt Truyện </p>
+					<div class="entry-header-review__point__detail">
+						<div class="review_pollbar">
+						</div>
+						<p>9</p>
+					</div>
+					<p>Nhân vật</p>
+					<div class="entry-header-review__point__detail">
+						<div class="review_pollbar">
+						</div>
+						<p>9</p>
+					</div>
+					<p>Nét vẽ</p>
+					<div class="entry-header-review__point__detail">
+						<div class="review_pollbar">
+						</div>
+						<p>9</p>
+					</div>
+					<p>Chất lượng</p>
+					<div class="entry-header-review__point__detail">
+						<div class="review_pollbar">
+						</div>
+						<p>9</p>
+					</div>
+			</div>
+			<div class="entry-header-review__total">
+				<div class="entry-header-review__total__left">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+				</div>
+				<div class="entry-header-review__total__right">
+					<div class="reivew-box__point">
+						<p>
+							Khá ổn
+						</p>
+						<p>
+							8.5
+						</p>
+						<fieldset class="rating">
+							<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+							<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+							<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+							<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+							<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+							<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+							<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+							<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+							<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+							<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+						</fieldset>
+					</div>
+				</div>
+			</div>
+			<div class="entry-header-review__feel">
+				<div class="entry-header-review__feel__right">
+						<h3>ĐIỂM CỘNG</h3>
+				</div>
+				<div class="entry-header-review__feel__left">
+						<h3>ĐIỂM TRỪ</h3>
+				</div>
+			</div>
+		</div>
 		<div class="entry-content">
 			<?php
 			if (is_single()) :
@@ -117,7 +214,6 @@
 				<?php the_newsmag_entry_footer(); ?>
 			</footer><!-- .entry-footer -->
 		<?php endif; ?>
-
 		<?php do_action('the_newsmag_after_post_content'); ?>
 	</div>
 </article><!-- #post-## -->

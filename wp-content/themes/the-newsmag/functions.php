@@ -362,8 +362,12 @@ add_action('template_redirect', 'the_newsmag_dynamic_content_width');
 
 function add_feature_group_field($taxonomy) { ?>
 	<div class="form-field term-group">
-		<label for="location"><?php _e('Template Category list'); ?></label>
-		<input class="controls" type="text" id="linkcat" name="linkcat"/>
+		<label for="location"><?php _e('Template Category list
+		'); ?></label>
+		<select name="linkcat" id="linkcat" class="postform">
+			<option value="tmp_default">Template mặc định</option>
+			<option value="tmp_review">Template Review</option>
+		</select>
 	</div> 
 	<?php
 }
@@ -382,10 +386,13 @@ function edit_feature_group_field($taxonomy) {
 	?>
 	<tr class="form-field">
 		<th valign="top" scope="row">
-			<label for="bedroom">Link tùy chỉnh</label>
+			<label for="bedroom">Chỉnh sửa template cho danh sách category</label>
 		</th>
 		<td>
-			<input class="controls" name="linkcat" type="text" id="linkcat" value="<?php echo $linkcat; ?>">
+			<select name="linkcat" id="linkcat" class="postform">
+				<option <?php selected( $linkcat,'tmp_default');?> value="tmp_default">Template mặc định</option>
+				<option <?php selected( $linkcat,'tmp_review');?> value="tmp_review">Template Review</option>
+			</select>
 		</td>
 	</tr>
 	<?php 
@@ -394,7 +401,7 @@ add_action( 'category_edit_form_fields', 'edit_feature_group_field', 10, 1);
 
 function update_category( $term_id, $tt_id ){
     if( isset( $_POST['linkcat'] ) && '' !== $_POST['linkcat'] ){
-         update_term_meta( $term_id, 'linkcat', $_POST['linkcat'] );
+         update_term_meta( $term_id, 'tmp_type_category', $_POST['linkcat'] );
     }
 } 
 add_action( 'edited_category', 'update_category', 10, 2 );
