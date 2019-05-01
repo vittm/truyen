@@ -356,8 +356,6 @@ class The_NewsMag_Posts_Category_Tab extends WP_Widget {
 											.hcf_box{
 												display: grid;
 												grid-template-columns: 40% 60%;
-												grid-row-gap: 10px;
-												grid-column-gap: 20px;
 											}
 											.hcf_field{
 												display: contents;
@@ -404,6 +402,7 @@ class The_NewsMag_Posts_Category_Tab extends WP_Widget {
 													<a href="<?php the_permalink($postReview->ID); ?>" title="<?php the_title_attribute($postReview->ID); ?>">
 														<img src="<?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($postReview->ID) ); echo $feat_image;?>" />
 														<div class="nameCategoryPost" style="background:<?php echo the_newsmag_category_color($term->term_id); ?>">
+															<div id="triangle-up" style="border-bottom-color:<?php echo the_newsmag_category_color($term->term_id); ?>" class=""></div>
 															<p class="nameCategoryPost__title">
 																<?php 
 																	echo $term->name;
@@ -548,18 +547,42 @@ class The_NewsMag_Posts_Slider_Widget extends WP_Widget {
 			?>
 
 			<?php
-			
 			foreach( $chunks as $key => $chunk ){
 				setup_postdata($chunk);	
 			?>
 			
 			<div class="single-article-content">
-				<?php foreach( $chunk as $key => $post ){ ?>
+				<?php foreach( $chunk as $key => $post ){ 
+					$category_detail=get_the_category($post->ID);//$post->ID
+					?>
 					<div class="single-article-content__group" style="margin-top: 40px;flex-basis:<?php if($showItem > 3){echo 100/($showItem/2) - 1.5; }else {echo (100/$showItem) ;}?>%">
 					<figure class="featured-image">
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							<?php the_post_thumbnail( 'the-newsmag-featured-large-thumbnail' ); ?>
 						</a>
+						
+						
+								<?php
+									$i=0;
+									foreach($category_detail as $key => $cd){
+										if($i == 0){
+											?>
+											<div class="nameCategoryPost" style="background:<?php echo the_newsmag_category_color($cd->term_id); ?>">
+											<div id="triangle-up" style="border-bottom-color:<?php echo the_newsmag_category_color($cd->term_id); ?>" class=""></div>
+												<p class="nameCategoryPost__title">
+													<?php echo $cd->name; ?>
+												</p>
+											</div>
+											<?php
+											$i++; //added here after edit.
+       										continue;
+										}else if($i > 0) {
+											break;
+										}
+										$i++;
+									}
+								?>
+						
 					</figure>
 					<?php if($typeShow == 1) { ?>
 						<a class="single-article-content__group__title" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>

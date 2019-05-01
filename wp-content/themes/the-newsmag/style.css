@@ -8696,19 +8696,35 @@
 			margin-bottom: 0px;
 		}
 		/* Category */
+		.review-box__right {
+			padding-left: 20px;
+		}
 		.review-box__right > a {
 			position: relative;
 			display: block;
 		}
+		.review-box__right > a > img {
+			border: 3px solid #dcdcdc;
+		}
 		.nameCategoryPost {
-			padding: 10px 20px;
+			padding: 5px 15px;
 			position: absolute;
-			right: 0;
-			bottom: 0;
+			right: 3px;
+			bottom: 3px;
 		}
 		.nameCategoryPost__title {
 			color: #ffffff;
 			margin: 0;
+		}
+		#triangle-up {
+			width: 0;
+			height: 0;
+			border-left: 40px solid transparent;
+			border-right: none;
+			border-bottom: 35px solid;
+			position: absolute;
+			top: 0;
+			left: -40px;
 		}
 		/****** Style Star Rating Widget *****/
 
@@ -8901,4 +8917,9 @@
 		.entry-header-review__feel__right__title > i, .entry-header-review__feel__left__title > i {
 			padding-right: 10px;
 		}
-		
+		.featured-image {
+			position: relative;
+		}
+		.single-article-content #triangle-up {
+			border-bottom-width: 34px;
+		}
