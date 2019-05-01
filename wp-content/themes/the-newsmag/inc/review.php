@@ -221,24 +221,26 @@ if (!function_exists('the_newsmag_save_custom_meta_create_review')) :
             'hcf_year'
         ];
         $fieldEditor = [
-            'hcf_summay',
+            'hcf_summary',
             'hcf_add_point',
             'hcf_minus_point'
         ];
-            foreach ( $fields as $field ) {
-                if ( array_key_exists( $field, $_POST ) ) {
-                    update_post_meta( $post_id, $field, sanitize_text_field( $_POST[$field] ) );
+            if(($_POST['hcf_show_review']) === on ){
+                foreach ( $fields as $field ) {
+                    if ( array_key_exists( $field, $_POST ) ) {
+                        update_post_meta( $post_id, $field, sanitize_text_field( $_POST[$field] ) );
+                    }
                 }
-            }
-            foreach ( $fieldEditor as $field ) {
-                if ( array_key_exists( $field, $_POST ) ) {
-                    update_post_meta( $post_id, $field, $_POST[$field]);
+                foreach ( $fieldEditor as $field ) {
+                    if ( array_key_exists( $field, $_POST ) ) {
+                        update_post_meta( $post_id, $field, $_POST[$field]);
+                    }
                 }
-            }
-            if ( isset($_POST['hcf_show_review']) ) {
-                update_post_meta($post_id, 'hcf_show_review', $_POST['hcf_show_review']);
-            }else{
-                delete_post_meta($post_id, 'hcf_show_review');
+                if ( isset($_POST['hcf_show_review']) ) {
+                    update_post_meta($post_id, 'hcf_show_review', $_POST['hcf_show_review']);
+                }else{
+                    delete_post_meta($post_id, 'hcf_show_review');
+                }
             }
         }
     add_action( 'save_post', 'hcf_save_meta_box' );

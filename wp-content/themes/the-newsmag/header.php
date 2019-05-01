@@ -16,7 +16,7 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
 </head>
 
 <body <?php body_class(); ?>>

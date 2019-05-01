@@ -365,8 +365,29 @@ class The_NewsMag_Posts_Category_Tab extends WP_Widget {
 										</style>
 										<div class="meta-options hcf_field">
 												<div class="review-box__left">
-													<div class="reivew-box__point">
-
+												<div class="reivew-box__point">
+														<?php  
+															$total = totalReview($postReview->ID);
+														?>
+														<div class="reivew-box__point--line"></div>
+														<svg viewbox="0 0 36 36" class="circular-chart" style="stroke:<?php echo the_newsmag_category_color($term->term_id); ?>">
+															<path class="circle-bg"
+																d="M18 2.0845
+																a 15.9155 15.9155 0 0 1 0 31.831
+																a 15.9155 15.9155 0 0 1 0 -31.831"
+															/>
+															<path class="circle"
+																stroke-dasharray="<?php echo $total * 10; ?>, 100"
+																d="M18 2.0845
+																a 15.9155 15.9155 0 0 1 0 31.831
+																a 15.9155 15.9155 0 0 1 0 -31.831"
+															/>
+															</svg>
+														<p class="reivew-box__point__number" style="color:<?php echo the_newsmag_category_color($term->term_id); ?>">
+															<?php
+																echo $total;
+															?>
+														</p>
 													</div>
 													<a href="<?php the_permalink($postReview->ID); ?>" title="<?php the_title_attribute($postReview->ID); ?>">
 													<?php echo $postReview->post_title;?></a>
@@ -377,12 +398,12 @@ class The_NewsMag_Posts_Category_Tab extends WP_Widget {
 													<p class="reivew-box__content">
 														<?php echo esc_attr( get_post_meta( $postReview->ID, 'hcf_summary', true ) );?>
 													</p>
-													<a href="">xem chi tiết</a>
+													<a class="review-box__link" href="<?php the_permalink($postReview->ID); ?>">Xem chi tiết <i class="fas fa-angle-double-right"></i></a>
 												</div>
 												<div class="review-box__right">
 													<a href="<?php the_permalink($postReview->ID); ?>" title="<?php the_title_attribute($postReview->ID); ?>">
 														<img src="<?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($postReview->ID) ); echo $feat_image;?>" />
-														<div class="nameCategoryPost" style="background:<?php echo the_newsmag_category_color($term->term_id) ?>">
+														<div class="nameCategoryPost" style="background:<?php echo the_newsmag_category_color($term->term_id); ?>">
 															<p class="nameCategoryPost__title">
 																<?php 
 																	echo $term->name;
