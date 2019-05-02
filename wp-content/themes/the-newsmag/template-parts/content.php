@@ -11,19 +11,14 @@
 	$postReview = get_post();
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="article-container clear">
+	<div class="article-container clear <?php if (!is_single() && !is_sticky() ) { echo "listing-post";}?>">
 		<?php do_action('the_newsmag_before_post_content'); 
 		if(($postReview->hcf_show_review) !== on ){
 		?>
-			<header class="page-header">
-				<?php
-				do_action('the_newsmag_category_title');
-				single_cat_title();
-				echo '<div class="taxonomy-description">' . category_description() . '</div>';
-				?>
-			</header><!-- .page-header -->
+		
 			<div class="post-header-wrapper clear">
-			<?php if (has_post_thumbnail()) : ?>
+			
+			<?php if (is_single() && has_post_thumbnail()) : ?>
 
 				<?php
 				$image_popup_id = get_post_thumbnail_id();
@@ -45,13 +40,6 @@
 				<?php endif; ?>
 
 			<?php endif; ?>
-
-			<?php if ('post' === get_post_type()) : ?>
-				<div class="category-links">
-					<?php the_newsmag_colored_category(); ?>
-				</div><!-- .entry-meta -->
-			<?php endif; ?>
-
 			<?php
 			if (('post' === get_post_type() && !post_password_required()) && (comments_open() || get_comments_number())) :
 				if ((has_post_thumbnail()) || (!has_post_thumbnail() && !is_single())) :
@@ -65,30 +53,33 @@
 				endif;
 			endif;
 			?>
-
-			<header class="entry-header clear">
-				<?php
-				if (is_single()) {
-					the_title('<h1 class="entry-title">', '</h1>');
-				} else {
-					the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
-				}
-				?>
-			</header><!-- .entry-header -->
 		</div>
 		<?php
 		}
 		?>
 
 		<div class="entry-header-meta">
+		<?php if (!is_single() && !is_sticky() && has_post_thumbnail()) : ?>
 			<?php
-			if ('post' === get_post_type()) :
-				?>
-				<div class="entry-meta">
-					<?php the_newsmag_posted_on(); ?>
-				</div><!-- .entry-meta -->
-			<?php endif;
+			$image_popup_id = get_post_thumbnail_id();
+			$image_popup_url = wp_get_attachment_url($image_popup_id);
 			?>
+
+			<?php if (!is_single()) : ?>
+				<figure class="featured-image">
+					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('the-newsmag-featured-large-thumbnail'); ?></a>
+				</figure>
+			<?php else : ?>
+				<figure class="featured-image">
+					<?php if (get_theme_mod('the_newsmag_featured_image_popup', 0) == 1) { ?>
+						<a href="<?php echo $image_popup_url; ?>" class="featured-image-popup" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('the-newsmag-featured-large-thumbnail'); ?></a>
+					<?php } else { ?>
+						<?php the_post_thumbnail('the-newsmag-featured-large-thumbnail'); ?>
+					<?php } ?>
+				</figure>
+			<?php endif; ?>
+
+			<?php endif; ?>
 		</div><!-- .entry-header-meta -->
 		<?php 
 			
@@ -232,16 +223,69 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 			}
 		?>
 		<div class="entry-content">
+			<?php if (is_single()) : ?>
+				<div class="entry_content__title--single">
+					<?php the_title(); ?>
+				</div>
+				<div class="entry-date">
+					<div style="padding-right: 15px;display:inline-block;">
+					<i class="far fa-clock"></i> <?php echo get_the_time('d.m.Y', $postReview->ID);?></div>
+					<i class="fas fa-pencil-alt"></i> 
+						<?php 
+							$name = get_the_author_meta('display_name',$postReview->post_author); 
+							echo $name;
+						?>				
+				</div>
+			<?php
+				endif;
+			?>
+			<?php if (!is_single() && !is_sticky()) : ?>
+			<?php
+				$category_detail=get_the_category($postReview->ID);//$post->ID
+				$i=0;
+				foreach($category_detail as $key => $cd){
+					if($i == 0){
+						?>
+						<div class="entry-content__listing nameCategoryPost" style="background:<?php echo the_newsmag_category_color($cd->term_id); ?>">
+						<div id="triangle-up" style="border-bottom-color:<?php echo the_newsmag_category_color($cd->term_id); ?>" class="triangle-up__right">
+							
+						</div>
+							<p class="nameCategoryPost__title">
+								<?php echo $cd->name; ?>
+							</p>
+						</div>
+						<?php
+						$i++; //added here after edit.
+						continue;
+					}else if($i > 0) {
+						break;
+					}
+					$i++;
+				}
+			?>
+				<a href="<?php the_permalink(); ?>" class="entry_content__title">
+					<?php the_title(); ?>
+				</a>
+				<div class="entry-date">
+					<div style="padding-right: 15px;display:inline-block;">
+					<i class="far fa-clock"></i> <?php echo get_the_time('d.m.Y', $postReview->ID);?></div>
+					<i class="fas fa-pencil-alt"></i> 
+						<?php 
+							$name = get_the_author_meta('display_name',$postReview->post_author); 
+							echo $name;
+						?>				
+				</div>
+				<?php
+			endif;
+			?>
 			<?php
 			if (is_single()) :
 				the_content();
 			else :
 				if (is_sticky()) :
-					// displaying full content for the sticky post
-					the_content(sprintf(
-									/* translators: %s: Name of current post. */
-									wp_kses('<button type="button" class="btn continue-more-link">' . __('Read More <i class="fa fa-arrow-circle-o-right"></i>', 'the-newsmag') . '</button> %s', array('i' => array('class' => array()), 'button' => array('class' => array(), 'type' => array()))), the_title('<span class="screen-reader-text">"', '"</span>', false)
-					));
+					?>
+						<a class="entry_content__link" href="<?php the_permalink(); ?>">Xem chi tiết <i class="fas fa-angle-double-right"></i></a> 
+					<?php
 				else :
 					the_excerpt(); // displaying excerpt for the archive pages
 				endif;
@@ -254,13 +298,8 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 			?>
 
 			<?php if (!is_single() && !is_sticky()) : ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-					<?php
-					printf(
-							/* translators: %s: Name of current post. */
-							wp_kses('<button type="button" class="btn continue-more-link">' . __('Read More <i class="fa fa-arrow-circle-o-right"></i>', 'the-newsmag') . '</button> %s', array('i' => array('class' => array()), 'button' => array('class' => array(), 'type' => array()))), the_title('<span class="screen-reader-text">"', '"</span>', false)
-					);
-					?>
+				<a class="entry_content__link" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+					Xem chi tiết <i class="fas fa-angle-double-right"></i>
 				</a>
 			<?php endif; ?>
 		</div><!-- .entry-content -->

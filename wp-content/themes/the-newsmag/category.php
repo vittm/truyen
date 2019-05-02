@@ -24,6 +24,15 @@ get_header();
 			if($tmp === 'tmp_review'){
 				require get_template_directory() . '/template-parts/content-review.php';
 			}else {
+				?>
+				<header class="page-header">
+					<?php
+						do_action('the_newsmag_category_title');
+						single_cat_title();
+						echo '<div class="taxonomy-description">' . category_description() . '</div>';
+					?>
+				</header><!-- .page-header -->
+				<?php
 				while (have_posts()) : the_post();
 				/*
 				 * Include the Post-Format-specific template for the content.

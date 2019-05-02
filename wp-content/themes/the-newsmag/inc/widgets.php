@@ -402,7 +402,7 @@ class The_NewsMag_Posts_Category_Tab extends WP_Widget {
 													<a href="<?php the_permalink($postReview->ID); ?>" title="<?php the_title_attribute($postReview->ID); ?>">
 														<img src="<?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($postReview->ID) ); echo $feat_image;?>" />
 														<div class="nameCategoryPost" style="background:<?php echo the_newsmag_category_color($term->term_id); ?>">
-															<div id="triangle-up" style="border-bottom-color:<?php echo the_newsmag_category_color($term->term_id); ?>" class=""></div>
+															<div id="triangle-up" class="triangle-up__left" style="border-bottom-color:<?php echo the_newsmag_category_color($term->term_id); ?>" class=""></div>
 															<p class="nameCategoryPost__title">
 																<?php 
 																	echo $term->name;
@@ -560,42 +560,47 @@ class The_NewsMag_Posts_Slider_Widget extends WP_Widget {
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							<?php the_post_thumbnail( 'the-newsmag-featured-large-thumbnail' ); ?>
 						</a>
-						
-						
-								<?php
-									$i=0;
-									foreach($category_detail as $key => $cd){
-										if($i == 0){
-											?>
-											<div class="nameCategoryPost" style="background:<?php echo the_newsmag_category_color($cd->term_id); ?>">
-											<div id="triangle-up" style="border-bottom-color:<?php echo the_newsmag_category_color($cd->term_id); ?>" class=""></div>
-												<p class="nameCategoryPost__title">
-													<?php echo $cd->name; ?>
-												</p>
-											</div>
-											<?php
-											$i++; //added here after edit.
-       										continue;
-										}else if($i > 0) {
-											break;
-										}
-										$i++;
-									}
-								?>
-						
+						<?php
+						if($typeShow == 2) {
+							$i=0;
+							foreach($category_detail as $key => $cd){
+								if($i == 0){
+									?>
+									<div class="nameCategoryPost" style="background:<?php echo the_newsmag_category_color($cd->term_id); ?>">
+									<div id="triangle-up" class="triangle-up__left" style="border-bottom-color:<?php echo the_newsmag_category_color($cd->term_id); ?>" class=""></div>
+										<p class="nameCategoryPost__title">
+											<?php echo $cd->name; ?>
+										</p>
+									</div>
+									<?php
+									$i++; //added here after edit.
+									continue;
+								}else if($i > 0) {
+									break;
+								}
+								$i++;
+							}
+						}
+						?>
 					</figure>
 					<?php if($typeShow == 1) { ?>
 						<a class="single-article-content__group__title" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 					<?php } else if($typeShow == 2) { ?>
 						<div class="category-title-meta-wrapper">
-							<div class="entry-meta">
-								<?php the_newsmag_widget_posts_posted_on(); ?>
+								<div class="entry-date">
+									<div style="padding-right: 15px;display:inline-block;">
+									<i class="far fa-clock"></i> <?php echo get_the_time('d.m.Y', $post->ID);?>
+									</div>
+									<i class="fas fa-pencil-alt"></i> <?php 
+									$name = get_the_author_meta('display_name',$post->post_author); 
+									echo $name;?>
+								
 							</div>
 							<h3 class="entry-title">
-								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+								<a style="font-weight: 600" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 							</h3>
 							<p class="entry-content">
-								<?php the_content(); ?> 
+								
 							</p>
 						</div>
 					<?php } ?>
